@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Geographical Inspection Recruitment Analysis — Suryan Engineer</title>
+<meta name="description" content="Case study: a geospatial clustering system that finds where hiring a local inspector would eliminate costly travel inspections, surfacing a $250K hiring decision in its first run." />
+
+<link rel="canonical" href="https://suryanengineer.github.io/projects/geographical-recruitment-analysis.html" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://suryanengineer.github.io/projects/geographical-recruitment-analysis.html" />
+<meta property="og:title" content="Geographical Inspection Recruitment Analysis — Suryan Engineer" />
+<meta property="og:description" content="Case study: a geospatial clustering system that finds where hiring a local inspector would eliminate costly travel inspections, surfacing a $250K hiring decision in its first run." />
+<meta property="og:site_name" content="Suryan Engineer" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="Geographical Inspection Recruitment Analysis — Suryan Engineer" />
+<meta name="twitter:description" content="Case study: a geospatial clustering system that finds where hiring a local inspector would eliminate costly travel inspections, surfacing a $250K hiring decision in its first run." />
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="../css/style.css" />
+</head>
+<body>
+
+<nav class="site-nav">
+  <div class="container">
+    <a href="../index.html" class="brand"><span class="dot"></span> Suryan Engineer</a>
+    <ul class="nav-links">
+      <li><a href="../index.html#projects">Projects</a></li>
+      <li><a href="../index.html#experience">Experience</a></li>
+      <li><a href="../index.html#skills">Skills</a></li>
+      <li><a href="../index.html#contact">Contact</a></li>
+    </ul>
+    <div class="nav-actions">
+      <button class="theme-toggle" data-theme-toggle aria-label="Toggle dark mode">
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+      </button>
+      <button class="nav-toggle" data-nav-toggle aria-label="Toggle menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<header class="case-hero">
+  <div class="container">
+    <a class="back-link" href="../index.html#projects">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+      All projects
+    </a>
+    <p class="section-label">CMCS · $250K Business Impact</p>
+    <h1>Geographical Inspection Recruitment Analysis</h1>
+    <p class="one-liner">
+      CMCS was paying inspectors extra to travel to jobs that a local inspector could already
+      cover, or that would have been cheaper to cover by hiring locally. I mapped and clustered
+      those travel inspections to find exactly where hiring made sense — an analysis that hadn't
+      been done before, and one that surfaced a $250,000 hiring opportunity in its first run.
+    </p>
+    <div class="case-tags">
+      <span class="tech-tag">Python</span>
+      <span class="tech-tag">Census Geocoding API</span>
+      <span class="tech-tag">Geospatial Clustering</span>
+      <span class="tech-tag">Leaflet.js</span>
+      <span class="tech-tag">openpyxl</span>
+      <span class="tech-tag">SQLite</span>
+    </div>
+  </div>
+</header>
+
+<section class="case-section">
+  <div class="container">
+    <p class="section-label">The Problem</p>
+    <h2>Paying a travel premium for coverage that already existed</h2>
+    <p class="lede">
+      CMCS inspectors are paid extra when a job requires travel outside their normal territory.
+      Across a nationwide network of independent inspectors, a lot of that travel was avoidable —
+      either another inspector was already working nearby, or the job volume in that area was
+      steady enough that hiring a local inspector would have been cheaper in the long run. Nobody
+      had systematically looked at where that was happening — CMCS didn't have the tools to run
+      that analysis.
+    </p>
+  </div>
+</section>
+
+<section class="case-section">
+  <div class="container">
+    <p class="section-label">The Approach</p>
+    <h2>Mapping and clustering travel inspections to find real hiring opportunities</h2>
+    <p class="lede">
+      I built a system that pulls in CMCS's live inspection data, geocodes every address, and
+      classifies each inspection as local or travel relative to the inspector who worked it. From
+      there, it clusters the travel inspections geographically to find where enough of them are
+      concentrated to justify a new hire. The output is a single dashboard with three
+      interactive maps, plus an Excel report ready to hand to leadership.
+    </p>
+
+    <div class="pipeline">
+      <span class="pipeline-step">Ingest inspection data</span>
+      <span class="pipeline-arrow">→</span>
+      <span class="pipeline-step">Geocode</span>
+      <span class="pipeline-arrow">→</span>
+      <span class="pipeline-step">Classify (Local / Travel)</span>
+      <span class="pipeline-arrow">→</span>
+      <span class="pipeline-step">Cluster (population-aware)</span>
+      <span class="pipeline-arrow">→</span>
+      <span class="pipeline-step">Dashboard + hiring report</span>
+    </div>
+  </div>
+</section>
+
+<section class="case-section">
+  <div class="container">
+    <p class="section-label">Technical Implementation</p>
+    <h2>A three-map dashboard, plus a hiring recommendation report</h2>
+    <p class="lede" style="margin-bottom:0;">
+      Every run produces one self-contained HTML dashboard with three interactive maps, and one
+      Excel report:
+    </p>
+
+    <h3 class="subhead">Inspector Ranges</h3>
+    <ul class="bullet-list">
+      <li>Maps every inspector alongside their inspections, classifying each one by whether it required travel, whether another inspector was already working nearby when it did, and whether it's already been completed or is still planned for later in the year. This was the first time the network could be seen laid out geographically instead of buried in spreadsheets.</li>
+    </ul>
+    <div class="screenshot">
+      <img src="../assets/images/inspector-ranges-map.webp" alt="Inspector Ranges map showing 116 inspectors, their inspection locations, and classifications by travel status and timing">
+    </div>
+    <p class="screenshot-caption">Inspector Ranges — 116 inspectors mapped with their inspection locations and classifications</p>
+
+    <h3 class="subhead">Analysis Clusters</h3>
+    <ul class="bullet-list">
+      <li>Takes every travel inspection for the year and clusters the ones that are geographically concentrated enough to represent a real inefficiency. Clusters can lock onto cities above a chosen population size, and can be tuned to favor tighter, more compact groupings — closer to real driving distances — over clusters that just contain the most points. The clustering is built to size each cluster to fully absorb the inefficient workload in a region, so it maps directly onto a hiring decision rather than just flagging a hotspot.</li>
+    </ul>
+    <div class="screenshot">
+      <img src="../assets/images/analysis-cluster-map.webp" alt="Analysis Cluster map showing 8 clusters covering 1,913 inefficient travel inspections, with adjustable clustering parameters">
+    </div>
+    <p class="screenshot-caption">Analysis Clusters — 8 clusters covering 1,913 travel inspections identified as inefficient</p>
+
+    <h3 class="subhead">Future Year Analysis</h3>
+    <ul class="bullet-list">
+      <li>Takes a projected increase in next year's inspection volume, scales the workload accordingly, and subtracts whatever the current inspector network could still cover locally. What's left — the workload current staff can't absorb — gets clustered the same way as the current-year analysis, turning a projected growth number into a concrete answer: how many hires, and where.</li>
+    </ul>
+    <div class="screenshot">
+      <img src="../assets/images/future-year-workload-map.webp" alt="Future Year Workload Analysis map projecting a 2x increase in inspection volume and identifying 18 hire regions">
+    </div>
+    <p class="screenshot-caption">Future Year Analysis — projecting 2× workload growth, 18 hire regions identified</p>
+
+    <p style="margin-top:6px;">
+      All three maps are interactive controls built directly into the dashboard's HTML —
+      cluster radius, minimum city population, and projected workload can all be adjusted and
+      re-clustered live in the browser, with no need to rerun the underlying Python pipeline.
+    </p>
+
+    <h3 class="subhead">Hiring Recommendation Report</h3>
+    <ul class="bullet-list">
+      <li>The dashboard is paired with an Excel report that turns each identified cluster into a hiring recommendation: the estimated cost of continuing to cover the area with travel inspectors versus the cost of hiring locally, and the potential savings, broken out per region. It's formatted to go straight to leadership as a decision-ready document, not a raw data dump.</li>
+    </ul>
+  </div>
+</section>
+
+<section class="case-section">
+  <div class="container">
+    <p class="section-label">Results</p>
+    <h2>A $250K hiring decision, and an ongoing tool</h2>
+    <p class="lede">
+      The initial run surfaced a concrete, actionable insight: several geographic clusters showed
+      high volumes of travel inspections — meaning CMCS was either paying travel premiums to send
+      inspectors far from home, or routing work to travel inspectors in areas a local inspector
+      could already cover. Quantifying the volume and location of that misalignment identified
+      specific hiring targets; the projected savings from making the right hire came to
+      approximately $250,000.
+    </p>
+    <div class="stats-grid cols-3">
+      <div class="stat-item reveal">
+        <span class="stat-number">$250K</span>
+        <span class="stat-label">Projected savings from the first run's hiring insight</span>
+      </div>
+      <div class="stat-item reveal">
+        <span class="stat-number">3</span>
+        <span class="stat-label">Interactive maps in one unified dashboard</span>
+      </div>
+      <div class="stat-item reveal">
+        <span class="stat-number">17 min → sec</span>
+        <span class="stat-label">Geocoding time per run, cold vs. warm cache</span>
+      </div>
+    </div>
+    <p style="margin-top:20px;">
+      Beyond that first finding, the system is designed to keep answering the same question as
+      the inspector roster, inspection volume, and geographic spread change — it can be re-run
+      any time the source data refreshes, rather than being a one-time analysis.
+    </p>
+  </div>
+</section>
+
+<section class="case-section">
+  <div class="container">
+    <p class="section-label">Confidentiality &amp; Data</p>
+    <h2>How this project is shown publicly</h2>
+    <div class="confidential-note">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/></svg>
+      <p>
+        <strong>Portfolio demonstration:</strong> the screenshots on this page are from the real
+        system, showing real aggregate figures — inspector counts, cluster sizes, workload
+        volume, projected hiring needs. No client names, addresses, or other identifying details
+        appear anywhere in them; these are the kind of high-level operational numbers CMCS is
+        comfortable sharing publicly.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="case-section">
+  <div class="container">
+    <p class="section-label">What I Learned</p>
+    <h2>Reflections</h2>
+    <ul class="bullet-list">
+      <li><strong>Geocoding at scale is an engineering problem, not a data problem.</strong> The naive approach — one API call per address — hits rate limits within minutes on any real dataset. Batching, caching aggressively, and building fallback logic for addresses that don't resolve cleanly turned a 17-minute-per-run geocoder into one that finishes in seconds on warm data.</li>
+      <li><strong>Clustering algorithms need a clear contract for what the radius means, and what counts as a valid center.</strong> Early attempts produced clusters centered on empty points with no realistic hiring target nearby — meaningless for the business question being asked. Locking cluster centers onto actual population centers made every result something someone could act on.</li>
+      <li><strong>Frontend interactivity in generated HTML needs careful scoping.</strong> Functions defined inside an IIFE are invisible to <code class="mono">onclick=</code> attributes, which resolve in the global scope — a persistent bug until I understood the difference between module-based and single-file embedded JavaScript patterns, and restructured accordingly.</li>
+      <li><strong>NaN in JSON fails silently.</strong> Python's <code class="mono">json.dumps</code> serializes <code class="mono">float('nan')</code> as the literal <code class="mono">NaN</code>, which isn't valid JSON. A browser parsing a <code class="mono">&lt;script&gt;</code> block containing it throws a SyntaxError and silently refuses to run the whole script — a blank page with no visible error unless you open the console. Sanitizing NaN/Infinity to null before serialization fixed it.</li>
+      <li><strong>Forecasting needs to account for how differently inspectors behave.</strong> Applying one growth model uniformly across inspectors with very different activity levels produces numbers that are computed but not meaningful. Segmenting inspectors by activity pattern before forecasting next year's workload made the Future Year Analysis results something worth planning around.</li>
+      <li><strong>There's a real difference between a one-time analysis and a rerunnable tool.</strong> A script that analyzes a snapshot of data is useful once. A tool that can be re-run in a single command on fresh data, with persistent caching and structured outputs, is useful indefinitely. This project started as the former and became the latter.</li>
+    </ul>
+  </div>
+</section>
+
+<section class="case-section">
+  <div class="container">
+    <p class="section-label">Technologies</p>
+    <h2>Stack</h2>
+    <div class="stack-row">
+      <span class="tech-tag">Python</span>
+      <span class="tech-tag">pandas</span>
+      <span class="tech-tag">openpyxl</span>
+      <span class="tech-tag">US Census Geocoding API</span>
+      <span class="tech-tag">Leaflet.js</span>
+      <span class="tech-tag">JavaScript</span>
+      <span class="tech-tag">SQLite</span>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container" style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;">
+    <p>&copy; <span data-year></span> Suryan Engineer. Built with plain HTML, CSS &amp; JS on GitHub Pages.</p>
+    <div class="footer-links">
+      <a href="https://linkedin.com/in/suryanengineer" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="mailto:suryanengineer1@gmail.com">Email</a>
+    </div>
+  </div>
+</footer>
+
+<script src="../js/main.js"></script>
+</body>
+</html>

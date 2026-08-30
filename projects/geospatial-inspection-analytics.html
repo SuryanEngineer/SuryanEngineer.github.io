@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Geospatial Inspection Analytics Platform — Suryan Engineer</title>
+<meta name="description" content="Case study: an end-to-end analytics platform that geocodes, classifies, and clusters a nationwide inspection portfolio, surfacing a $250K hiring decision in its first run." />
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="../css/style.css" />
+</head>
+<body>
+
+<nav class="site-nav">
+  <div class="container">
+    <a href="../index.html" class="brand"><span class="dot"></span> Suryan Engineer</a>
+    <ul class="nav-links">
+      <li><a href="../index.html#projects">Projects</a></li>
+      <li><a href="../index.html#experience">Experience</a></li>
+      <li><a href="../index.html#skills">Skills</a></li>
+      <li><a href="../index.html#contact">Contact</a></li>
+    </ul>
+    <div class="nav-actions">
+      <button class="theme-toggle" data-theme-toggle aria-label="Toggle dark mode">
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+      </button>
+      <button class="nav-toggle" data-nav-toggle aria-label="Toggle menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<header class="case-hero">
+  <div class="container">
+    <a class="back-link" href="../index.html#projects">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+      All projects
+    </a>
+    <p class="section-label">CMCS · $250K Business Impact</p>
+    <h1>Geospatial Inspection Analytics Platform</h1>
+    <p class="one-liner">
+      An end-to-end analytics platform that geocodes, classifies, and clusters a nationwide
+      portfolio of housing inspections carried out by independent inspectors across the
+      country — the first run directly surfaced a hiring decision worth an estimated $250,000.
+    </p>
+    <div class="case-tags">
+      <span class="tech-tag">Python 3.11</span>
+      <span class="tech-tag">Census Geocoding API</span>
+      <span class="tech-tag">scikit-learn (BallTree)</span>
+      <span class="tech-tag">Leaflet.js</span>
+      <span class="tech-tag">openpyxl</span>
+      <span class="tech-tag">SQLite</span>
+      <span class="tech-tag">Gemini AI</span>
+    </div>
+    <div class="btn-row">
+      <a class="btn btn-primary" href="../demos/geospatial-analytics-demo.html" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+        Live Demo <span class="todo-flag">TODO: add demo file</span>
+      </a>
+    </div>
+  </div>
+</header>
+
+<section class="case-section">
+  <div class="container">
+    <p class="section-label">The Problem</p>
+    <h2>No programmatic view of a nationwide inspection network</h2>
+    <p class="lede">
+      CMCS manages thousands of HUD-regulated property inspections across the United States,
+      carried out by a network of independent inspectors spread across the country. Before this
+      project, there was no programmatic way to see where inspections were happening, which
+      inspectors were covering what geography, whether assignments made geographic or logistical
+      sense, or how to plan future hiring. All of that analysis happened manually, in
+      spreadsheets, or not at all.
+    </p>
+  </div>
+</section>
+
+<section class="case-section">
+  <div class="container">
+    <p class="section-label">The Approach</p>
+    <h2>An ingest → geocode → classify → cluster → forecast → report pipeline</h2>
+    <p class="lede">
+      I designed and built a suite of Python tools — now consolidated into a single, rerunnable
+      system — that ingests the company's live inspection data, geocodes every address,
+      classifies every inspection by geography and status, clusters inspections by proximity and
+      workload, models inspector capacity, and presents all of it through interactive maps and
+      structured Excel reports.
+    </p>
+
+    <div class="pipeline">
+      <span class="pipeline-step">Ingest .xlsm</span>
+      <span class="pipeline-arrow">→</span>
+      <span class="pipeline-step">Geocode (Census API)</span>
+      <span class="pipeline-arrow">→</span>
+      <span class="pipeline-step">Classify</span>
+      <span class="pipeline-arrow">→</span>
+      <span class="pipeline-step">Cluster</span>
+      <span class="pipeline-arrow">→</span>
+      <span class="pipeline-step">Forecast workload</span>
+      <span class="pipeline-arrow">→</span>
+      <span class="pipeline-step">Maps + Excel</span>
+    </div>
+
+    <div class="figure-placeholder">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-5-5L5 21"/></svg>
+      Screenshot of the interactive map goes here
+      <div class="fp-label">the Live Demo above is the real, interactive thing — this is a static fallback image for anyone who doesn't click through</div>
+    </div>
+  </div>
+</section>
+
+<section class="case-section">
+  <div class="container">
+    <p class="section-label">Technical Implementation</p>
+    <h2>How it works</h2>
+
+    <h3 class="subhead">Data Ingestion</h3>
+    <ul class="bullet-list">
+      <li>Reads directly from the company's live <span class="mono">.xlsm</span> workbook using <code class="mono">pandas</code> and <code class="mono">openpyxl</code>. The source sheet — <span class="mono">Combined Insp and Prop</span> — contains every inspection record: status codes, addresses, inspector assignments, travel flags, and duration data. All columns are preserved through the pipeline so nothing is lost.</li>
+    </ul>
+
+    <h3 class="subhead">Geocoding Pipeline</h3>
+    <ul class="bullet-list">
+      <li><strong>Two-pass batch geocoding</strong> using the US Census Bureau's free batch geocoding API — no API key, no rate limit. The first pass sends full street addresses in batches of 1,000; the second pass sends city/state/zip for anything that failed, including PO Box addresses (explicitly detected and routed to the fallback, since the Census API can't geocode those by street).</li>
+      <li>A <strong>persistent JSON cache</strong> resolves every previously-geocoded address instantly on future runs — only genuinely new addresses hit the network.</li>
+      <li>This took the geocoder from <strong>17+ minutes per run</strong> (the original Nominatim approach, rate-limited to one request per second) to <strong>seconds</strong> once the cache is warm.</li>
+      <li>Every inspector's home address is geocoded and cached separately, establishing each inspector's home-base coordinate — the foundation for all range analysis.</li>
+    </ul>
+
+    <h3 class="subhead">Classification</h3>
+    <ul class="bullet-list">
+      <li>Every inspection is classified into a <strong>4×5 matrix</strong>: 4 status groups (HUD Accepted, Archived, Cancelled, Future) × 5 location buckets (Local/Own Range, Local/Other Range, Local/Remote, Travel/Overlap, Travel/Remote).</li>
+      <li>This directly answers the questions that matter operationally: is an inspector working their own territory? Is CMCS paying travel premiums to reach places another inspector already covers? Where are the real geographic gaps?</li>
+    </ul>
+
+    <h3 class="subhead">Clustering Algorithm</h3>
+    <ul class="bullet-list">
+      <li>A <strong>centroid-refinement clustering algorithm built from scratch</strong>: it seeds each cluster on the densest unassigned point (measured by surrounding workload, not just inspection count), iteratively shifts the centroid using duration-weighted averaging until it converges, then assigns all inspections within the configured radius — enforced against the <em>final</em> centroid, not via chain expansion, so every cluster has a hard geometric guarantee on maximum member distance.</li>
+      <li>Backed by a <code class="mono">scikit-learn</code> <strong>BallTree</strong> for fast radius queries. The same algorithm runs both in Python (pre-computed layers) and in JavaScript (real-time "combination" clustering in the browser map).</li>
+      <li>Inspection duration is the weight throughout — a 4-hour inspection counts 4× a 1-hour inspection in centroids, workload totals, and seed priority, so clusters represent actual work density, not just inspection count.</li>
+    </ul>
+
+    <h3 class="subhead">Inspector Workload Forecasting</h3>
+    <ul class="bullet-list">
+      <li>Each inspector is classified into one of four <strong>behavioral segments</strong> — Dormant, New, Sporadic, Established — each with its own forecasting model: Established inspectors get recency-weighted velocity with a trend adjustment; Sporadic inspectors get a blended velocity scaled by activity rate; New inspectors fall back to a team ramp curve derived from observed ramp behavior; Dormant inspectors (no completions in 6 months) are excluded entirely so they don't distort the numbers.</li>
+      <li>The output is a <strong>low / expected / high</strong> range per inspector, plus a pipeline utilization figure (scheduled ÷ expected completions) that immediately flags who's overbooked and who has capacity.</li>
+      <li>Cancelled-rate is tracked separately (cancelled ÷ total assigned), per inspector and per region.</li>
+    </ul>
+
+    <h3 class="subhead">Recruiting Automation — NSPIRE Finder</h3>
+    <ul class="bullet-list">
+      <li>A companion tool that scrapes the <strong>NACHI and ASHI certification databases</strong> — the two main inspector certification bodies — for candidates potentially open to work, using Tavily as the primary search provider with DuckDuckGo as a fallback.</li>
+      <li>Candidates are scored by <strong>Gemini AI</strong> against fit criteria, stored in SQLite, and exported to a formatted Excel spreadsheet.</li>
+      <li>Targeting verified certification sources — rather than resume databases — means every surfaced candidate is already a credentialed inspector: a structural advantage over manual job-board review.</li>
+    </ul>
+
+    <h3 class="subhead">Outputs</h3>
+    <ul class="bullet-list">
+      <li><strong>Two interactive Leaflet.js maps.</strong> The analysis map has 21 pre-computed layers (one per category), a single-category mode, and a combination mode where any subset of categories can be selected and clustered dynamically in the browser — powered by a spatial grid index for O(1)-amortized neighbor lookup, so combining categories with thousands of inspections each completes in well under a second. A second map shows every inspector's home location, coverage-radius circle, and every inspection within it, color-coded by classification.</li>
+      <li><strong>Excel outputs</strong> via <code class="mono">openpyxl</code> with full formatting — color-coded headers per status group, alternating row backgrounds per location bucket, frozen panes, conditional color-scale formatting on distance and duration columns, and cluster divider rows labeled with size, workload, and geographic center. One sheet per category, plus a summary pivot table.</li>
+    </ul>
+
+    <h3 class="subhead">Architecture — built to be rerun, not just run once</h3>
+    <ul class="bullet-list">
+      <li>The original design was two separate scripts — one classifying inspections into an intermediate Excel file, a second reading that file back in to cluster it. I eliminated the intermediate file by consolidating both into a single script, <code class="mono">combined_analysis.py</code>: classification now runs in memory and passes DataFrames directly into clustering. The tool runs in one command and produces both outputs (Excel + HTML map) in a single pass — no manual intermediate steps, no stale files, safely re-runnable any time the source workbook refreshes.</li>
+    </ul>
+  </div>
+</section>
+
+<section class="case-section">
+  <div class="container">
+    <p class="section-label">Results</p>
+    <h2>A $250K hiring decision, and an ongoing tool</h2>
+    <p class="lede">
+      The initial run surfaced a concrete, actionable insight: several geographic clusters
+      showed high volumes of inspections classified as Travel/Remote or Travel/Overlap —
+      meaning CMCS was either paying travel premiums to send inspectors far from home, or
+      routing work to travel inspectors in areas a local inspector could already cover.
+      Quantifying the volume and location of that misalignment identified specific hiring
+      targets; the projected savings from making the right hire came to approximately $250,000.
+    </p>
+    <div class="stats-grid cols-3">
+      <div class="stat-item reveal">
+        <span class="stat-number">$250K</span>
+        <span class="stat-label">Projected savings from the first run's hiring insight</span>
+      </div>
+      <div class="stat-item reveal">
+        <span class="stat-number">21</span>
+        <span class="stat-label">Pre-computed map layers, one per classification category</span>
+      </div>
+      <div class="stat-item reveal">
+        <span class="stat-number">17 min → sec</span>
+        <span class="stat-label">Geocoding time per run, cold vs. warm cache</span>
+      </div>
+    </div>
+    <p style="margin-top:20px;">
+      Beyond that first finding, the system is designed to keep answering the same questions as
+      the inspector roster, inspection volume, and geographic spread change — it can be re-run
+      any time the source data refreshes. NSPIRE Finder complements this by giving CMCS a
+      recruiting pipeline targeted at exactly the underserved geographies the cluster analysis
+      identifies.
+    </p>
+  </div>
+</section>
+
+<section class="case-section">
+  <div class="container">
+    <p class="section-label">Confidentiality &amp; Data</p>
+    <h2>How this project is shown publicly</h2>
+    <div class="confidential-note">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/></svg>
+      <p>
+        <strong>Portfolio demonstration:</strong> this page and its live demo describe the real
+        system I built, but the demo — including the interactive maps — runs entirely on
+        <strong>synthetic data</strong> generated to replicate the structure and statistical
+        characteristics of the original CMCS data. No proprietary, client, or confidential
+        information is included. Because the demo is a self-contained file with the data
+        embedded directly in it, everything in it has to be safe to be fully public.
+      </p>
+    </div>
+
+    <p style="margin-top:22px;">Example of the anonymization approach applied throughout:</p>
+    <div class="anon-example">
+      <div class="anon-col">
+        <span class="anon-title">Original (not shown)</span>
+        <span>Inspector: John Smith</span>
+        <span>Client: ABC Company</span>
+        <span>Address: 1234 Actual Street</span>
+        <span>Inspection ID: 819283</span>
+      </div>
+      <span class="anon-arrow">→</span>
+      <div class="anon-col after">
+        <span class="anon-title">Portfolio version</span>
+        <span>Inspector: Inspector 17</span>
+        <span>Client: Client 284</span>
+        <span>Address: 1847 Example Ave</span>
+        <span>Inspection ID: SYN-008192</span>
+      </div>
+    </div>
+    <p><span class="todo-flag">TODO</span> Generate the actual synthetic dataset, re-run the
+      real pipeline against it, and drop the resulting HTML as the live demo above (see
+      README.md for the full workflow).</p>
+  </div>
+</section>
+
+<section class="case-section">
+  <div class="container">
+    <p class="section-label">What I Learned</p>
+    <h2>Reflections</h2>
+    <ul class="bullet-list">
+      <li><strong>Geocoding at scale is an engineering problem, not a data problem.</strong> The naive approach — one API call per address — hits rate limits within minutes on any real dataset. Batching (1,000 addresses per request), caching aggressively, building multi-pass fallback logic, and detecting known-bad formats like PO Boxes before they waste a call turned a 17-minute-per-run geocoder into one that finishes in seconds on warm data.</li>
+      <li><strong>Clustering algorithms need a clear contract for what the radius means.</strong> Early chain-link expansion (A near B, B near C ⇒ one cluster) produced clusters averaging 500+ miles from their center — meaningless. Replacing it with centroid-refinement clustering, where the radius is enforced against the final centroid, gives every cluster a hard geometric guarantee instead.</li>
+      <li><strong>Frontend interactivity in generated HTML needs careful scoping.</strong> Functions defined inside an IIFE are invisible to <code class="mono">onclick=</code> attributes, which resolve in the global scope — a persistent bug until I understood the difference between module-based and single-file embedded JavaScript patterns, and restructured accordingly.</li>
+      <li><strong>NaN in JSON fails silently.</strong> Python's <code class="mono">json.dumps</code> serializes <code class="mono">float('nan')</code> as the literal <code class="mono">NaN</code>, which isn't valid JSON. A browser parsing a <code class="mono">&lt;script&gt;</code> block containing it throws a SyntaxError and silently refuses to run the whole script — a blank page with no visible error unless you open the console. Sanitizing NaN/Infinity to null before serialization fixed it.</li>
+      <li><strong>Workforce forecasting needs segment-aware models.</strong> The same velocity formula applied uniformly to a three-year veteran and an inspector active for one month produces numbers that are computed but analytically wrong. Classifying inspectors into behavioral segments first, then applying the right model per segment, generalizes well beyond this project — a metric computed uniformly across a heterogeneous population usually hides more than it reveals.</li>
+      <li><strong>There's a real difference between a one-time analysis and a rerunnable tool.</strong> A script that analyzes a snapshot of data is useful once. A tool that can be re-run in a single command on fresh data, with persistent caching, robust error handling, and structured outputs, is useful indefinitely. This project started as the former and became the latter.</li>
+    </ul>
+  </div>
+</section>
+
+<section class="case-section">
+  <div class="container">
+    <p class="section-label">Technologies</p>
+    <h2>Stack</h2>
+    <div class="stack-row">
+      <span class="tech-tag">Python 3.11</span>
+      <span class="tech-tag">pandas</span>
+      <span class="tech-tag">openpyxl</span>
+      <span class="tech-tag">US Census Geocoding API</span>
+      <span class="tech-tag">scikit-learn (BallTree)</span>
+      <span class="tech-tag">Leaflet.js</span>
+      <span class="tech-tag">JavaScript</span>
+      <span class="tech-tag">SQLite</span>
+      <span class="tech-tag">Gemini AI</span>
+      <span class="tech-tag">Tavily</span>
+      <span class="tech-tag">DuckDuckGo</span>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container" style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;">
+    <p>&copy; <span data-year></span> Suryan Engineer. Built with plain HTML, CSS &amp; JS on GitHub Pages.</p>
+    <div class="footer-links">
+      <a href="https://github.com/suryanengineer" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://linkedin.com/in/suryanengineer" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="mailto:suryanengineer1@gmail.com">Email</a>
+    </div>
+  </div>
+</footer>
+
+<script src="../js/main.js"></script>
+</body>
+</html>
