@@ -4,17 +4,17 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Geographical Inspection Recruitment Analysis — Suryan Engineer</title>
-<meta name="description" content="Case study: a geospatial clustering system that finds where hiring a local inspector would eliminate costly travel inspections, surfacing a $250K hiring decision in its first run." />
+<meta name="description" content="Project: a geospatial clustering system that finds where hiring a local inspector would eliminate costly travel inspections, surfacing a $250K hiring decision in its first run." />
 
 <link rel="canonical" href="https://suryanengineer.github.io/projects/geographical-recruitment-analysis.html" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://suryanengineer.github.io/projects/geographical-recruitment-analysis.html" />
 <meta property="og:title" content="Geographical Inspection Recruitment Analysis — Suryan Engineer" />
-<meta property="og:description" content="Case study: a geospatial clustering system that finds where hiring a local inspector would eliminate costly travel inspections, surfacing a $250K hiring decision in its first run." />
+<meta property="og:description" content="Project: a geospatial clustering system that finds where hiring a local inspector would eliminate costly travel inspections, surfacing a $250K hiring decision in its first run." />
 <meta property="og:site_name" content="Suryan Engineer" />
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:title" content="Geographical Inspection Recruitment Analysis — Suryan Engineer" />
-<meta name="twitter:description" content="Case study: a geospatial clustering system that finds where hiring a local inspector would eliminate costly travel inspections, surfacing a $250K hiring decision in its first run." />
+<meta name="twitter:description" content="Project: a geospatial clustering system that finds where hiring a local inspector would eliminate costly travel inspections, surfacing a $250K hiring decision in its first run." />
 <link rel="icon" href="data:,">
 <link rel="stylesheet" href="../css/style.css" />
 </head>
@@ -47,13 +47,17 @@
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
       All projects
     </a>
-    <p class="section-label">CMCS · $250K Business Impact</p>
+    <div class="hero-meta">
+      <p class="section-label">CMCS · $250K Projected Annual Savings</p>
+      <span class="project-year">2026</span>
+    </div>
     <h1>Geographical Inspection Recruitment Analysis</h1>
     <p class="one-liner">
-      CMCS was paying inspectors extra to travel to jobs that a local inspector could already
-      cover, or that would have been cheaper to cover by hiring locally. I mapped and clustered
-      those travel inspections to find exactly where hiring made sense — an analysis that hadn't
-      been done before, and one that surfaced a $250,000 hiring opportunity in its first run.
+      CMCS incurred additional costs when inspections required inspectors to travel beyond their
+      normal territories. I developed a geospatial analysis system to identify concentrations of
+      travel inspections and determine where local hiring could reduce future coverage costs.
+      The initial analysis identified approximately $250,000 in projected annual savings
+      opportunities.
     </p>
     <div class="case-tags">
       <span class="tech-tag">Python</span>
@@ -71,12 +75,11 @@
     <p class="section-label">The Problem</p>
     <h2>Paying a travel premium for coverage that already existed</h2>
     <p class="lede">
-      CMCS inspectors are paid extra when a job requires travel outside their normal territory.
-      Across a nationwide network of independent inspectors, a lot of that travel was avoidable —
-      either another inspector was already working nearby, or the job volume in that area was
-      steady enough that hiring a local inspector would have been cheaper in the long run. Nobody
-      had systematically looked at where that was happening — CMCS didn't have the tools to run
-      that analysis.
+      Inspectors receive additional compensation when assignments require travel outside their
+      normal service areas. Across the inspector network, some of this travel represented work
+      that could potentially be covered more efficiently by existing local capacity or by
+      establishing local coverage. CMCS had not previously had a systematic way to identify and
+      quantify these geographic opportunities.
     </p>
   </div>
 </section>
@@ -86,11 +89,11 @@
     <p class="section-label">The Approach</p>
     <h2>Mapping and clustering travel inspections to find real hiring opportunities</h2>
     <p class="lede">
-      I built a system that pulls in CMCS's live inspection data, geocodes every address, and
-      classifies each inspection as local or travel relative to the inspector who worked it. From
-      there, it clusters the travel inspections geographically to find where enough of them are
-      concentrated to justify a new hire. The output is a single dashboard with three
-      interactive maps, plus an Excel report ready to hand to leadership.
+      I developed a pipeline that ingests current inspection data, geocodes inspection addresses,
+      classifies inspections as local or travel relative to the assigned inspector, and clusters
+      geographically concentrated travel inspections. The resulting clusters identify regions
+      where the volume and distribution of travel work may justify local hiring. The system
+      produces an interactive dashboard and an Excel report suitable for operational review.
     </p>
 
     <div class="pipeline">
@@ -118,7 +121,7 @@
 
     <h3 class="subhead">Inspector Ranges</h3>
     <ul class="bullet-list">
-      <li>Maps every inspector alongside their inspections, classifying each one by whether it required travel, whether another inspector was already working nearby when it did, and whether it's already been completed or is still planned for later in the year. This was the first time the network could be seen laid out geographically instead of buried in spreadsheets.</li>
+      <li>Maps every inspector alongside their inspections, classifying each one by whether it required travel, whether another inspector was already working nearby when it did, and whether it has already been completed or is still planned for later in the year. This was the first view of the inspector network laid out geographically rather than distributed across spreadsheets.</li>
     </ul>
     <div class="screenshot">
       <img src="../assets/images/inspector-ranges-map.webp" alt="Inspector Ranges map showing 116 inspectors, their inspection locations, and classifications by travel status and timing">
@@ -127,7 +130,7 @@
 
     <h3 class="subhead">Analysis Clusters</h3>
     <ul class="bullet-list">
-      <li>Takes every travel inspection for the year and clusters the ones that are geographically concentrated enough to represent a real inefficiency. Clusters can lock onto cities above a chosen population size, and can be tuned to favor tighter, more compact groupings — closer to real driving distances — over clusters that just contain the most points. The clustering is built to size each cluster to fully absorb the inefficient workload in a region, so it maps directly onto a hiring decision rather than just flagging a hotspot.</li>
+      <li>Clusters every travel inspection for the year that is geographically concentrated enough to represent a meaningful inefficiency. Clusters can be anchored to cities above a chosen population threshold and tuned to favor tighter, more compact groupings that better approximate real driving distances, rather than clusters that simply maximize point count. Each cluster is sized to fully account for the inefficient workload in a region, so the output maps directly onto a hiring decision rather than a general hotspot indicator.</li>
     </ul>
     <div class="screenshot">
       <img src="../assets/images/analysis-cluster-map.webp" alt="Analysis Cluster map showing 8 clusters covering 1,913 inefficient travel inspections, with adjustable clustering parameters">
@@ -136,7 +139,7 @@
 
     <h3 class="subhead">Future Year Analysis</h3>
     <ul class="bullet-list">
-      <li>Takes a projected increase in next year's inspection volume, scales the workload accordingly, and subtracts whatever the current inspector network could still cover locally. What's left — the workload current staff can't absorb — gets clustered the same way as the current-year analysis, turning a projected growth number into a concrete answer: how many hires, and where.</li>
+      <li>Takes a projected increase in next year's inspection volume, scales the workload accordingly, and subtracts what the current inspector network could still cover locally. The remaining workload — what current staff could not absorb — is clustered using the same method as the current-year analysis, converting a projected growth figure into a concrete recommendation: how many hires, and where.</li>
     </ul>
     <div class="screenshot">
       <img src="../assets/images/future-year-workload-map.webp" alt="Future Year Workload Analysis map projecting a 2x increase in inspection volume and identifying 18 hire regions">
@@ -151,7 +154,7 @@
 
     <h3 class="subhead">Hiring Recommendation Report</h3>
     <ul class="bullet-list">
-      <li>The dashboard is paired with an Excel report that turns each identified cluster into a hiring recommendation: the estimated cost of continuing to cover the area with travel inspectors versus the cost of hiring locally, and the potential savings, broken out per region. It's formatted to go straight to leadership as a decision-ready document, not a raw data dump.</li>
+      <li>The dashboard is paired with an Excel report that converts each identified cluster into a hiring recommendation: the estimated cost of continuing to cover the area with travel inspectors versus the cost of hiring locally, with potential savings broken out per region. It is formatted as a decision-ready document for leadership review, rather than a raw data export.</li>
     </ul>
   </div>
 </section>
@@ -159,34 +162,28 @@
 <section class="case-section">
   <div class="container">
     <p class="section-label">Results</p>
-    <h2>A $250K hiring decision, and an ongoing tool</h2>
+    <h2>$250K in projected annual savings opportunities</h2>
     <p class="lede">
-      The initial run surfaced a concrete, actionable insight: several geographic clusters showed
-      high volumes of travel inspections — meaning CMCS was either paying travel premiums to send
-      inspectors far from home, or routing work to travel inspectors in areas a local inspector
-      could already cover. Quantifying the volume and location of that misalignment identified
-      specific hiring targets; the projected savings from making the right hire came to
-      approximately $250,000.
+      The initial analysis identified several geographic concentrations with sufficient travel
+      volume to warrant evaluation for local hiring. The resulting recommendations represented
+      approximately $250,000 in projected annual savings opportunities. The system was designed
+      as a repeatable analysis rather than a one-time report, allowing the organization to
+      reassess hiring needs as inspection volume and geographic coverage change.
     </p>
     <div class="stats-grid cols-3">
       <div class="stat-item reveal">
         <span class="stat-number">$250K</span>
-        <span class="stat-label">Projected savings from the first run's hiring insight</span>
+        <span class="stat-label">Projected annual savings opportunities identified</span>
       </div>
       <div class="stat-item reveal">
         <span class="stat-number">3</span>
         <span class="stat-label">Interactive maps in one unified dashboard</span>
       </div>
       <div class="stat-item reveal">
-        <span class="stat-number">17 min → sec</span>
-        <span class="stat-label">Geocoding time per run, cold vs. warm cache</span>
+        <span class="stat-number">17 min → seconds</span>
+        <span class="stat-label">Geocoding runtime after caching</span>
       </div>
     </div>
-    <p style="margin-top:20px;">
-      Beyond that first finding, the system is designed to keep answering the same question as
-      the inspector roster, inspection volume, and geographic spread change — it can be re-run
-      any time the source data refreshes, rather than being a one-time analysis.
-    </p>
   </div>
 </section>
 
@@ -209,15 +206,15 @@
 
 <section class="case-section">
   <div class="container">
-    <p class="section-label">What I Learned</p>
+    <p class="section-label">Engineering Lessons</p>
     <h2>Reflections</h2>
     <ul class="bullet-list">
-      <li><strong>Geocoding at scale is an engineering problem, not a data problem.</strong> The naive approach — one API call per address — hits rate limits within minutes on any real dataset. Batching, caching aggressively, and building fallback logic for addresses that don't resolve cleanly turned a 17-minute-per-run geocoder into one that finishes in seconds on warm data.</li>
-      <li><strong>Clustering algorithms need a clear contract for what the radius means, and what counts as a valid center.</strong> Early attempts produced clusters centered on empty points with no realistic hiring target nearby — meaningless for the business question being asked. Locking cluster centers onto actual population centers made every result something someone could act on.</li>
-      <li><strong>Frontend interactivity in generated HTML needs careful scoping.</strong> Functions defined inside an IIFE are invisible to <code class="mono">onclick=</code> attributes, which resolve in the global scope — a persistent bug until I understood the difference between module-based and single-file embedded JavaScript patterns, and restructured accordingly.</li>
-      <li><strong>NaN in JSON fails silently.</strong> Python's <code class="mono">json.dumps</code> serializes <code class="mono">float('nan')</code> as the literal <code class="mono">NaN</code>, which isn't valid JSON. A browser parsing a <code class="mono">&lt;script&gt;</code> block containing it throws a SyntaxError and silently refuses to run the whole script — a blank page with no visible error unless you open the console. Sanitizing NaN/Infinity to null before serialization fixed it.</li>
-      <li><strong>Forecasting needs to account for how differently inspectors behave.</strong> Applying one growth model uniformly across inspectors with very different activity levels produces numbers that are computed but not meaningful. Segmenting inspectors by activity pattern before forecasting next year's workload made the Future Year Analysis results something worth planning around.</li>
-      <li><strong>There's a real difference between a one-time analysis and a rerunnable tool.</strong> A script that analyzes a snapshot of data is useful once. A tool that can be re-run in a single command on fresh data, with persistent caching and structured outputs, is useful indefinitely. This project started as the former and became the latter.</li>
+      <li><strong>Geocoding at scale is an engineering problem, not a data problem.</strong> A naive one-API-call-per-address approach hits rate limits within minutes on any real dataset. Batching, aggressive caching, and fallback logic for addresses that don't resolve cleanly turned a 17-minute-per-run geocoder into one that finishes in seconds on warm data.</li>
+      <li><strong>Clustering algorithms need a clear contract for what the radius means, and what counts as a valid center.</strong> Early attempts produced clusters centered on empty points with no realistic hiring target nearby. Anchoring cluster centers to actual population centers made every result actionable.</li>
+      <li><strong>Frontend interactivity in generated HTML needs careful scoping.</strong> Functions defined inside an IIFE are invisible to <code class="mono">onclick=</code> attributes, which resolve in the global scope — understanding the distinction between module-based and single-file embedded JavaScript patterns resolved the bug.</li>
+      <li><strong>Silent serialization failures are worth guarding against explicitly.</strong> Python's <code class="mono">json.dumps</code> serializes <code class="mono">float('nan')</code> as the literal <code class="mono">NaN</code>, which isn't valid JSON — a browser parsing it throws a SyntaxError with no visible error unless the console is open. Sanitizing NaN/Infinity to null before serialization resolved it.</li>
+      <li><strong>Forecasting needs to account for how differently inspectors behave.</strong> Applying one growth model uniformly across inspectors with very different activity levels produces numbers that are computed but not meaningful. Segmenting inspectors by activity pattern before forecasting made the Future Year Analysis results useful for planning.</li>
+      <li><strong>A rerunnable tool is worth more than a one-time analysis.</strong> A script that analyzes a snapshot of data is useful once; a tool that can be re-run on fresh data, with persistent caching and structured outputs, is useful indefinitely. This project started as the former and became the latter.</li>
     </ul>
   </div>
 </section>

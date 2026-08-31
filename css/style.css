@@ -363,6 +363,29 @@ section.alt { background: var(--bg-alt); border-top: 1px solid var(--border); bo
   letter-spacing: 0.02em;
 }
 
+.card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.project-year {
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
+  color: var(--text-faint);
+  flex-shrink: 0;
+}
+
+.hero-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+.hero-meta .section-label { margin-bottom: 0; }
+
 
 .project-card h3 { font-size: 1.25rem; }
 
@@ -460,6 +483,9 @@ section.alt { background: var(--bg-alt); border-top: 1px solid var(--border); bo
 }
 
 .edu-card h3 { font-size: 1.1rem; margin-bottom: 6px; }
+.prior-education { margin-top: 22px; padding-top: 18px; border-top: 1px solid var(--border); }
+.prior-education h4 { margin-top: 0; }
+.prior-education h3 { font-size: 1rem; margin-bottom: 6px; }
 .edu-card .exp-time { font-family: var(--font-mono); font-size: 0.82rem; color: var(--text-faint); margin-bottom: 14px; display: block; }
 .edu-card p { color: var(--text-muted); font-size: 0.95rem; }
 .edu-card h4 {

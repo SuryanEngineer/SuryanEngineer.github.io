@@ -4,17 +4,17 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Forecast — Fantasy Stock Market for Competitive Fortnite — Suryan Engineer</title>
-<meta name="description" content="Case study: a trading market for competitive Fortnite esports — order books, price-time priority, dividend apportionment, and market liquidity." />
+<meta name="description" content="Project: a trading market for competitive Fortnite esports — order books, price-time priority, dividend apportionment, and market liquidity." />
 
 <link rel="canonical" href="https://suryanengineer.github.io/projects/fortnite-stock-market.html" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://suryanengineer.github.io/projects/fortnite-stock-market.html" />
 <meta property="og:title" content="Forecast — Fantasy Stock Market for Competitive Fortnite — Suryan Engineer" />
-<meta property="og:description" content="Case study: a trading market for competitive Fortnite esports — order books, price-time priority, dividend apportionment, and market liquidity." />
+<meta property="og:description" content="Project: a trading market for competitive Fortnite esports — order books, price-time priority, dividend apportionment, and market liquidity." />
 <meta property="og:site_name" content="Suryan Engineer" />
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:title" content="Forecast — Fantasy Stock Market for Competitive Fortnite — Suryan Engineer" />
-<meta name="twitter:description" content="Case study: a trading market for competitive Fortnite esports — order books, price-time priority, dividend apportionment, and market liquidity." />
+<meta name="twitter:description" content="Project: a trading market for competitive Fortnite esports — order books, price-time priority, dividend apportionment, and market liquidity." />
 <link rel="icon" href="data:,">
 <link rel="stylesheet" href="../css/style.css" />
 </head>
@@ -47,17 +47,22 @@
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
       All projects
     </a>
-    <p class="section-label">Personal Project · Active Development</p>
-    <h1>Forecast: a Fantasy Stock Market for Competitive Fortnite</h1>
+    <div class="hero-meta">
+      <p class="section-label">Personal Project · Active Development</p>
+      <span class="project-year">2026</span>
+    </div>
+    <h1>Forecast: A Fantasy Stock Market for Competitive Fortnite</h1>
     <p class="one-liner">
       Forecast is a fantasy stock market for competitive Fortnite. Professional players are
-      issued as tradeable stocks, priced through a live order book, and pay dividends when they
-      place well in tournaments — giving people who follow the competitive scene a market where
-      that knowledge has real value.
+      represented as tradeable securities, with prices determined through a live order book and
+      dividends tied to tournament performance. The platform is designed to give users who
+      closely follow the competitive scene a market in which that knowledge can inform trading
+      decisions.
     </p>
     <div class="case-tags">
       <span class="tech-tag">Market Design</span>
       <span class="tech-tag">Order Book Mechanics</span>
+      <span class="tech-tag">Financial Systems</span>
       <span class="tech-tag">Python</span>
       <span class="tech-tag">React</span>
     </div>
@@ -75,13 +80,16 @@
     <p class="section-label">The Idea</p>
     <h2>A market built around real trading mechanics</h2>
     <p class="lede">
-      Professional Fortnite players are issued as stocks through an auction, then trade on a live
-      order book the same way an equity trades on an exchange. When a player places well in a
-      tournament, a share of the prize pool is paid out per share as a dividend, and cash that
-      isn't invested in players sits in a treasury instrument and earns yield. The goal was to
-      reward genuine insight into the competitive scene, which meant the market itself had to
-      behave like a real one: prices set by actual supply and demand, liquidity that someone has
-      to provide, and settlement that reconciles exactly every time.
+      Professional Fortnite players are introduced to the market through an auction and
+      subsequently trade through a live order book. When a player performs well in a tournament,
+      a portion of the relevant prize pool is distributed to shareholders as a dividend.
+      Uninvested cash is held in a treasury instrument and earns yield.
+    </p>
+    <p class="lede">
+      The objective was to create a market in which competitive knowledge could provide a
+      meaningful trading advantage, which required the underlying mechanics to reflect real
+      market principles: prices determined by supply and demand, explicitly provided liquidity,
+      and exact settlement of all transactions and distributions.
     </p>
   </div>
 </section>
@@ -94,8 +102,8 @@
       Trading runs on a real order book with two order types.
     </p>
     <ul class="bullet-list">
-      <li><strong>Limit orders</strong> rest in the book at a chosen price until matched. Matching follows <strong>price-time priority</strong>: the best price fills first, and ties go to whichever order arrived first.</li>
-      <li><strong>Quick orders</strong> execute immediately, sweeping through resting liquidity at the best available price — the effective price worsens as the order gets larger. If the book alone can't fill it, a liquidity-provider position steps in, capped to its own holdings so it can never sell shares it doesn't have.</li>
+      <li><strong>Limit orders</strong> rest in the order book at a specified price until matched. Matching follows <strong>price-time priority</strong>, with the best available price receiving priority and earlier orders taking precedence among orders at the same price.</li>
+      <li><strong>Quick orders</strong> execute immediately against available resting liquidity, sweeping through the book at the best available prices. As order size increases, execution may occur at progressively less favorable prices. When the order book cannot satisfy the full request, a liquidity-provider position supplies additional capacity, subject to its own holdings.</li>
     </ul>
   </div>
 </section>
@@ -106,10 +114,9 @@
     <h2>Exact settlement on every payout</h2>
     <p class="lede">
       Dividends and auction proceeds are distributed using an <strong>exact largest-remainder
-      ("Hamilton") apportionment method</strong> — the same rounding-fair approach used in
-      proportional-representation voting — so a fixed pool splits across shareholders without
-      leaking or duplicating a fraction of a cent. Total cash and total shares are designed to
-      stay conserved exactly after every trade, dividend, and settlement.
+      (Hamilton) apportionment method</strong>. This ensures that the full distribution pool is
+      allocated across shareholders without introducing rounding discrepancies, while preserving
+      exact cash and share conservation.
     </p>
   </div>
 </section>
@@ -119,10 +126,11 @@
     <p class="section-label">Liquidity</p>
     <h2>Liquidity has to come from somewhere</h2>
     <p class="lede">
-      A market with no resting orders has nothing to trade against. A population of automated
-      participants, each following a different trading strategy, keeps the book populated so
-      human traders always have someone on the other side — placing orders through the same path
-      a human trade uses, with no special access.
+      A market without resting orders cannot provide meaningful liquidity. Forecast uses a
+      population of automated participants with distinct trading strategies to maintain
+      order-book liquidity and provide counterparties for human traders. These participants
+      submit orders through the same execution path available to human users and do not receive
+      privileged access.
     </p>
   </div>
 </section>
@@ -130,13 +138,13 @@
 <section class="case-section">
   <div class="container">
     <p class="section-label">Testing the Rules</p>
-    <h2>Testing the design before going live</h2>
+    <h2>Testing the market before launch</h2>
     <p class="lede">
-      Before running with real users, the market was simulated across many cycles with
-      populations of bot traders to find where the rules broke — runaway inflation, dividends
-      miscalibrated relative to trading activity, fees that starved liquidity instead of
-      supporting it. The fee structure, dividend sizing, and treasury rate in the system today
-      came out of that process, not out of guessing.
+      Before introducing the market to users, I simulated repeated trading cycles with
+      populations of automated participants to identify failures in the economic and trading
+      rules, including runaway inflation, poorly calibrated dividends, and fee structures that
+      reduced liquidity. The current fee structure, dividend parameters, and treasury rate were
+      selected based on those simulations rather than arbitrary assumptions.
     </p>
   </div>
 </section>
@@ -144,24 +152,24 @@
 <section class="case-section">
   <div class="container">
     <p class="section-label">Where This Stands</p>
-    <h2>Actively developed alpha, tested against real infrastructure</h2>
+    <h2>Active alpha — tested end-to-end against the live application stack</h2>
     <p class="lede">
-      Forecast is under active development. The order book, dividend and auction settlement,
-      and the trading frontend are all built and have been smoke-tested end-to-end against a
-      live database and cache — you can try it yourself in the live demo above.
+      Forecast is under active development. The order book, auction and dividend settlement
+      systems, and trading interface have been implemented and tested end-to-end against the
+      live database and cache infrastructure. A live demonstration is available above.
     </p>
     <div class="screenshot-pair">
       <div>
         <div class="screenshot">
           <img src="../assets/images/forecast-limit-order.webp" alt="Forecast trading interface in Limit Order mode, showing a player's price chart, order book depth, and a buy order form with a limit price field" loading="lazy" />
         </div>
-        <p class="screenshot-caption">Limit Order mode — set your own price and it rests on the order book until it fills.</p>
+        <p class="screenshot-caption">Limit Order mode — specify a price and allow the order to remain in the book until matched.</p>
       </div>
       <div>
         <div class="screenshot">
           <img src="../assets/images/forecast-quick-trade.webp" alt="Forecast trading interface in Quick Trade mode, showing the same order book with instant buy/sell controls and an estimated cost breakdown" loading="lazy" />
         </div>
-        <p class="screenshot-caption">Quick Trade mode — instant execution at the best available price, with the premium priced in upfront.</p>
+        <p class="screenshot-caption">Quick Trade mode — immediate execution against available liquidity, with the estimated execution premium shown before submission.</p>
       </div>
     </div>
   </div>
@@ -169,12 +177,12 @@
 
 <section class="case-section">
   <div class="container">
-    <p class="section-label">What I Learned</p>
+    <p class="section-label">Design Lessons</p>
     <h2>Lessons from designing a market, not just an app</h2>
     <ul class="bullet-list">
-      <li><strong>The rules only become real at the edges.</strong> Deciding what happens when a quick order can't find enough liquidity — and capping the fallback so the market can never sell shares it doesn't have — mattered more than the happy-path trading logic.</li>
-      <li><strong>Every parameter is coupled to every other one.</strong> Fee rates affect liquidity, dividend size affects wealth distribution, and the treasury rate affects how much cash sits idle — none of them can be tuned in isolation, which is why the economy was simulated in batches before any of them were set for real.</li>
-      <li><strong>The economics have to be decided before the product, not fixed afterward.</strong> Deciding the rules up front, even in a simulator, was far cheaper than redesigning core logic after real positions already existed.</li>
+      <li><strong>The rules only become meaningful at the edge cases.</strong> Designing behavior for situations where a quick order cannot find sufficient liquidity was more consequential than implementing the standard trading path. The liquidity-provider fallback therefore had to be explicitly constrained so the system could never create or sell shares beyond available holdings.</li>
+      <li><strong>Market parameters are interdependent.</strong> Fee rates affect liquidity, dividend sizing affects wealth distribution, and the treasury rate affects idle cash balances. These parameters had to be evaluated jointly through simulation rather than tuned independently.</li>
+      <li><strong>Economic rules must be established before implementation at scale.</strong> Defining settlement, dividend, fee, and treasury mechanics in simulation was substantially less costly than modifying those rules after real positions and balances had been established.</li>
     </ul>
   </div>
 </section>

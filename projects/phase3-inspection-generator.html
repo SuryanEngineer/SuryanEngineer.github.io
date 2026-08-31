@@ -4,17 +4,17 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Phase 3 Inspection Generator — Suryan Engineer</title>
-<meta name="description" content="Case study: a geospatial matching tool that finds eligible training inspections for each trainee inspector, with a priority-aware fallback for travel cases." />
+<meta name="description" content="Project: a geospatial matching tool that finds eligible training inspections for each trainee inspector, with a priority-aware fallback for travel cases." />
 
 <link rel="canonical" href="https://suryanengineer.github.io/projects/phase3-inspection-generator.html" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://suryanengineer.github.io/projects/phase3-inspection-generator.html" />
 <meta property="og:title" content="Phase 3 Inspection Generator — Suryan Engineer" />
-<meta property="og:description" content="Case study: a geospatial matching tool that finds eligible training inspections for each trainee inspector, with a priority-aware fallback for travel cases." />
+<meta property="og:description" content="Project: a geospatial matching tool that finds eligible training inspections for each trainee inspector, with a priority-aware fallback for travel cases." />
 <meta property="og:site_name" content="Suryan Engineer" />
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:title" content="Phase 3 Inspection Generator — Suryan Engineer" />
-<meta name="twitter:description" content="Case study: a geospatial matching tool that finds eligible training inspections for each trainee inspector, with a priority-aware fallback for travel cases." />
+<meta name="twitter:description" content="Project: a geospatial matching tool that finds eligible training inspections for each trainee inspector, with a priority-aware fallback for travel cases." />
 <link rel="icon" href="data:,">
 <link rel="stylesheet" href="../css/style.css" />
 </head>
@@ -47,13 +47,16 @@
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
       All projects
     </a>
-    <p class="section-label">CMCS · Production System</p>
+    <div class="hero-meta">
+      <p class="section-label">CMCS · Production System</p>
+      <span class="project-year">2026</span>
+    </div>
     <h1>Phase 3 Inspection Generator</h1>
     <p class="one-liner">
-      A geospatial matching tool that finds eligible training inspections for each trainee
-      inspector — falling back to travel-eligible options only when a closer trainee doesn't
-      already have priority on them — saving an estimated 3 hours of work a day for the person
-      who used to do this by hand.
+      Developed a geospatial matching system that identifies eligible training inspections for
+      each trainee inspector, prioritizing nearby opportunities and applying a priority-aware
+      travel fallback when local options are unavailable. The system saves approximately three
+      hours of manual work per day.
     </p>
     <div class="case-tags">
       <span class="tech-tag">Python</span>
@@ -67,15 +70,15 @@
 <section class="case-section">
   <div class="container">
     <p class="section-label">The Problem</p>
-    <h2>Matching trainees to training inspections was a manual research task</h2>
+    <h2>Training-inspection matching required manual research</h2>
     <p class="lede">
       New inspectors need supervised, qualifying inspections to complete Phase 3 of their
-      training — but not every inspection qualifies, and not every qualifying one is anywhere
-      near a given trainee. Before this system, someone had to manually filter the full
-      inspection list down to what actually counted for Phase 3, cross-reference it against
-      where every trainee was based, and work out by hand which nearby inspections each trainee
-      could realistically attend — then figure out the messier cases where a trainee had nothing
-      close by and needed to travel instead.
+      training — but not every inspection qualifies, and not every qualifying one is near a
+      given trainee. Before this system, someone had to manually filter the full inspection list
+      down to what actually counted for Phase 3, cross-reference it against where every trainee
+      was based, and work out by hand which nearby inspections each trainee could realistically
+      attend, then resolve the messier cases where a trainee had nothing close by and needed to
+      travel instead.
     </p>
   </div>
 </section>
@@ -83,7 +86,7 @@
 <section class="case-section">
   <div class="container">
     <p class="section-label">The Approach</p>
-    <h2>From a full inspection list to a short list per trainee</h2>
+    <h2>Reducing a large inspection dataset to actionable candidate lists</h2>
     <p class="lede">
       I built a tool that filters the inspection data down to what's actually eligible for
       Phase 3 training, maps every trainee and eligible inspection geographically, and generates
@@ -124,22 +127,22 @@
     <h2>Impact</h2>
     <p class="lede">
       What used to be a manual cross-referencing exercise — filtering eligibility, checking
-      locations, and working out travel cases by hand — now runs automatically and hands back a
-      short, ready-to-review list. It's estimated to save around 3 hours of work a day for the
-      person who used to run this process manually.
+      locations, and working out travel cases by hand — now runs automatically and produces a
+      short, ready-to-review list. The system is estimated to save approximately three hours of
+      work per day for the person who previously ran this process manually.
     </p>
   </div>
 </section>
 
 <section class="case-section">
   <div class="container">
-    <p class="section-label">What I Learned</p>
+    <p class="section-label">Engineering Lessons</p>
     <h2>Reflections</h2>
     <ul class="bullet-list">
-      <li>This was the first project I'd built that had to reason about real-world location rather than categorical data, and it meant actually learning how to calculate distance between two coordinates — the <strong>Haversine formula</strong> — instead of treating it as a solved problem. That groundwork carried directly into every geospatial project I built after this one.</li>
-      <li>Nearest-neighbor matching sounds like a solved problem until a fairness rule gets added on top. The hard part here wasn't finding the closest eligible inspection for a trainee — it was making sure a travel fallback for one trainee never quietly took priority away from another trainee it actually belonged to.</li>
-      <li>"Eligible for Phase 3 training" turned out to be a fuzzier rule than it first sounded. Filtering on inspection type alone missed real cases that mattered, so getting the eligibility rule right took as much back-and-forth with the person who ran this by hand as the matching logic did.</li>
-      <li>The tool doesn't need to make the final call to save real time. Narrowing a large, tedious search down to a short list a person can glance at and confirm turned out to be exactly the amount of automation this process actually needed.</li>
+      <li><strong>Geospatial reasoning requires explicit distance definitions.</strong> This was the first project I'd built that had to reason about real-world location rather than categorical data. Implementing the <strong>Haversine formula</strong> to calculate distance between two coordinates, rather than treating it as a solved problem, established a consistent basis for evaluating geographic proximity and became a foundation for every geospatial project I built after this one.</li>
+      <li><strong>Nearest-neighbor matching becomes more complex when shared priorities are introduced.</strong> The hard part wasn't finding the closest eligible inspection for a trainee — it was ensuring a travel fallback for one trainee never took priority away from another trainee with a stronger geographic claim to the same inspection.</li>
+      <li><strong>Eligibility rules require domain validation.</strong> Filtering on inspection type alone missed real cases that mattered, so the initial filtering criteria had to be refined through discussions with the process owner to capture cases that couldn't be inferred reliably from the underlying inspection fields alone.</li>
+      <li><strong>Automation doesn't need to replace human judgment to create significant value.</strong> Narrowing a large, tedious search down to a short, relevant candidate list was sufficient to eliminate most of the manual effort while preserving human oversight of the final decision.</li>
     </ul>
   </div>
 </section>

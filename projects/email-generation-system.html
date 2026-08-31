@@ -4,17 +4,17 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Automated Email Generation System — Suryan Engineer</title>
-<meta name="description" content="Case study: automating a fully manual, daily PDF-filling and emailing process across four scheduled mailings, saving an estimated $40,000 a year for CMCS." />
+<meta name="description" content="Project: automating a fully manual, daily PDF-filling and emailing process across four scheduled mailings, saving an estimated $40,000 a year for CMCS." />
 
 <link rel="canonical" href="https://suryanengineer.github.io/projects/email-generation-system.html" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://suryanengineer.github.io/projects/email-generation-system.html" />
 <meta property="og:title" content="Automated Email Generation System — Suryan Engineer" />
-<meta property="og:description" content="Case study: automating a fully manual, daily PDF-filling and emailing process across four scheduled mailings, saving an estimated $40,000 a year for CMCS." />
+<meta property="og:description" content="Project: automating a fully manual, daily PDF-filling and emailing process across four scheduled mailings, saving an estimated $40,000 a year for CMCS." />
 <meta property="og:site_name" content="Suryan Engineer" />
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:title" content="Automated Email Generation System — Suryan Engineer" />
-<meta name="twitter:description" content="Case study: automating a fully manual, daily PDF-filling and emailing process across four scheduled mailings, saving an estimated $40,000 a year for CMCS." />
+<meta name="twitter:description" content="Project: automating a fully manual, daily PDF-filling and emailing process across four scheduled mailings, saving an estimated $40,000 a year for CMCS." />
 <link rel="icon" href="data:,">
 <link rel="stylesheet" href="../css/style.css" />
 </head>
@@ -47,12 +47,16 @@
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
       All projects
     </a>
-    <p class="section-label">CMCS · Internship Project</p>
+    <div class="hero-meta">
+      <p class="section-label">CMCS · Internship Project</p>
+      <span class="project-year">2025</span>
+    </div>
     <h1>Automated Email Generation System</h1>
     <p class="one-liner">
-      A Python system that fills PDF templates from Excel data and emails them out on schedule —
-      replacing a fully manual process across four separate mailings and saving an estimated
-      15–20 hours of work per day, or about $40,000 a year, across five schedulers.
+      A Python system that populates PDF templates from Excel data and distributes them by email
+      on schedule, replacing a fully manual process across four separate mailings and saving an
+      estimated 15–20 hours of combined scheduler time per day, equivalent to approximately
+      $40,000 annually.
     </p>
     <div class="case-tags">
       <span class="tech-tag">Python</span>
@@ -66,13 +70,13 @@
 <section class="case-section">
   <div class="container">
     <p class="section-label">The Problem</p>
-    <h2>A manual process nobody had gotten around to fixing</h2>
+    <h2>A manual process that had not previously been automated</h2>
     <p class="lede">
       I started that summer as a data-entry intern, manually filling in PDF forms from Excel data
       and passing them to schedulers, who reviewed and emailed them out to clients by hand.
-      Several other people across the team did the same kind of work every day, across several
-      different scheduled mailings, and nobody had automated it or seriously looked into whether
-      it could be.
+      Several other people across the team performed the same work daily, across several
+      different scheduled mailings, and the process had remained entirely manual with no prior
+      evaluation of whether it could be automated.
     </p>
   </div>
 </section>
@@ -82,11 +86,12 @@
     <p class="section-label">The Approach</p>
     <h2>From spreadsheet to sent email, with no one in the loop</h2>
     <p class="lede">
-      With only a few classes of coding experience, I proposed automating the process to my
-      supervisor and built a system that reads the same Excel data used in the manual version,
-      populates the PDF template directly, and sends it by email — all without anyone opening a
-      file. Once the first mailing worked end to end, I extended the same pattern to all four
-      scheduled email types the team had been sending out manually.
+      I identified the opportunity to automate the process and proposed it to my supervisor. The
+      resulting system reads the same Excel data used by the manual workflow, populates PDF
+      templates programmatically, constructs the corresponding emails, and sends them on
+      schedule without manual file preparation. Once the first mailing worked end to end, I
+      extended the same pattern to all four scheduled email types the team had been sending out
+      manually.
     </p>
     <div class="pipeline">
       <span class="pipeline-step">Excel data</span>
@@ -103,13 +108,12 @@
 <section class="case-section">
   <div class="container">
     <p class="section-label">Results</p>
-    <h2>A small project with an outsized impact</h2>
+    <h2>Automating a recurring operational cost</h2>
     <p class="lede">
-      This was far less technically involved than the optimization and analytics systems I built
-      later, but it mattered just as much — it replaced a real, recurring cost in people's time
-      that nobody had prioritized fixing. Automating all four scheduled mailings saved an
-      estimated 15–20 hours of combined work per day, or roughly $40,000 a year, across five
-      schedulers, and turned into an extended role building larger systems the following year.
+      Automating all four scheduled mailings eliminated a recurring manual workflow and saved an
+      estimated 15–20 hours of combined scheduler time per day, equivalent to approximately
+      $40,000 annually across five schedulers. The project also led to an extended role focused
+      on developing larger automation and analytical systems.
     </p>
     <div class="stats-grid cols-3">
       <div class="stat-item reveal">
@@ -130,12 +134,12 @@
 
 <section class="case-section">
   <div class="container">
-    <p class="section-label">What I Learned</p>
+    <p class="section-label">Engineering Lessons</p>
     <h2>Reflections</h2>
     <ul class="bullet-list">
-      <li>Pitching the idea mattered as much as building it. Nobody was going to hand a brand-new intern with almost no coding background a project like this — I had to make the case for it myself, on top of the data-entry work I was already assigned.</li>
-      <li>A mistake here wasn't a lower grade on one assignment — it was a real email going out to a real client, wrong or incomplete. The source data was often messy and missing values in inconsistent places, so most of the actual engineering was defensive: validating everything before it touched a template, and building in failsafes that would hold a mailing back rather than let anything imperfect go out.</li>
-      <li>Impact and technical difficulty aren't the same axis. This was the simplest system I've built, and one of the highest-impact, because the value was in noticing an overlooked, repetitive process that nobody had prioritized fixing — not in the sophistication of the fix itself.</li>
+      <li><strong>Initiative matters as much as implementation.</strong> Nobody was going to hand a brand-new intern a project like this by default — identifying and proposing a viable automation opportunity, on top of the data-entry work I was already assigned, was as important as building it.</li>
+      <li><strong>Defensive engineering matters in operational workflows.</strong> A mistake here wasn't a lower grade on one assignment — it was a real email going out to a real client, wrong or incomplete. The source data was often messy and missing values in inconsistent places, so most of the engineering was defensive: validating everything before it touched a template, and building in failsafes that would hold a mailing back rather than let anything imperfect go out.</li>
+      <li><strong>Impact and technical complexity are independent axes.</strong> This was the simplest system I've built, and one of the highest-impact, because the value was in identifying an overlooked, repetitive process that nobody had prioritized fixing, not in the sophistication of the fix itself.</li>
     </ul>
   </div>
 </section>

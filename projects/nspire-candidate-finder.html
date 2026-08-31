@@ -4,17 +4,17 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>NSPIRE Candidate Finder — Suryan Engineer</title>
-<meta name="description" content="Case study: an AI-assisted tool that searches the web for certified home inspectors, scores their fit, and hands recruiters a clean, ranked list." />
+<meta name="description" content="Project: an AI-assisted tool that searches the web for certified home inspectors, scores their fit, and hands recruiters a clean, ranked list." />
 
 <link rel="canonical" href="https://suryanengineer.github.io/projects/nspire-candidate-finder.html" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://suryanengineer.github.io/projects/nspire-candidate-finder.html" />
 <meta property="og:title" content="NSPIRE Candidate Finder — Suryan Engineer" />
-<meta property="og:description" content="Case study: an AI-assisted tool that searches the web for certified home inspectors, scores their fit, and hands recruiters a clean, ranked list." />
+<meta property="og:description" content="Project: an AI-assisted tool that searches the web for certified home inspectors, scores their fit, and hands recruiters a clean, ranked list." />
 <meta property="og:site_name" content="Suryan Engineer" />
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:title" content="NSPIRE Candidate Finder — Suryan Engineer" />
-<meta name="twitter:description" content="Case study: an AI-assisted tool that searches the web for certified home inspectors, scores their fit, and hands recruiters a clean, ranked list." />
+<meta name="twitter:description" content="Project: an AI-assisted tool that searches the web for certified home inspectors, scores their fit, and hands recruiters a clean, ranked list." />
 <link rel="icon" href="data:,">
 <link rel="stylesheet" href="../css/style.css" />
 </head>
@@ -47,12 +47,15 @@
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
       All projects
     </a>
-    <p class="section-label">CMCS · Production System</p>
+    <div class="hero-meta">
+      <p class="section-label">CMCS · Production System</p>
+      <span class="project-year">2026</span>
+    </div>
     <h1>NSPIRE Candidate Finder</h1>
     <p class="one-liner">
-      A tool that automatically searches the web for certified home inspectors across target
-      markets, uses AI to judge how good a fit each one is, and hands recruiters a clean, ranked
-      list — replacing hours of manual directory searching with a process that runs on its own.
+      Developed an automated recruiting pipeline that searches target markets for certified
+      home inspectors, extracts candidate information, evaluates candidate fit using LLMs, and
+      produces a ranked dataset for recruiter review.
     </p>
     <div class="case-tags">
       <span class="tech-tag">Python</span>
@@ -70,11 +73,11 @@
     <p class="section-label">The Problem</p>
     <h2>Manual directory searching doesn't scale</h2>
     <p class="lede">
-      Finding inspectors to recruit meant manually searching certification directories one
-      market at a time, opening each listing by hand, and judging whether someone was worth
-      reaching out to. As the candidate list grew into the hundreds, the same people kept
-      getting looked at more than once, which was inefficient and easy to fix — the bigger issue
-      was that none of it scaled past a handful of markets at a time.
+      Recruiting inspectors required manually searching certification directories one market at
+      a time, reviewing individual listings, and judging whether a candidate was worth reaching
+      out to. As the candidate list grew into the hundreds, repeated searches also produced
+      duplicate candidates and inconsistent coverage across markets — and none of it scaled past
+      a handful of markets at a time.
     </p>
   </div>
 </section>
@@ -84,10 +87,11 @@
     <p class="section-label">The Approach</p>
     <h2>A search-and-review process that runs on its own</h2>
     <p class="lede">
-      I built a system that runs the whole search-and-review process automatically: it searches
-      each target market on a schedule, pulls candidate information off the page, and uses AI to
-      score how strong a fit each person is, with a short written explanation of why, before it
-      lands in a ranked spreadsheet ready for a recruiter to use.
+      I developed a pipeline that automates the search, extraction, evaluation, deduplication,
+      and reporting stages of the process. Searches are executed against defined target markets,
+      candidate information is extracted from public pages, an LLM evaluates fit against
+      specified criteria, and results are consolidated into a ranked Excel output for recruiter
+      review.
     </p>
     <div class="pipeline">
       <span class="pipeline-step">Search markets</span>
@@ -109,10 +113,10 @@
     <h2>How it works</h2>
     <ul class="bullet-list">
       <li>Searches each target market using a consistent, repeatable set of search terms, so coverage is predictable instead of random.</li>
-      <li>Reads each candidate's page and pulls out the details that matter — current role, employer, certification, experience — automatically.</li>
-      <li>Uses AI to score each candidate's fit and write a short note explaining the reasoning, the same way a recruiter would jot down first impressions.</li>
+      <li>Reads each candidate's page and extracts the details that matter — current role, employer, certification, experience — automatically.</li>
+      <li>Uses an LLM to evaluate candidate fit against a defined scoring framework and generate a concise rationale for each result, the same way a recruiter would jot down first impressions.</li>
       <li>Automatically recognizes when the same person shows up more than once (even under a slightly different listing) and combines them into one record instead of creating a duplicate.</li>
-      <li>Runs on multiple accounts in rotation to get more searches done per day within free usage limits.</li>
+      <li>Search execution is structured to maximize coverage while respecting the limits of the underlying services.</li>
       <li>Outputs everything into a polished, color-coded Excel file that's ready to hand off — no cleanup needed.</li>
       <li>Packaged the whole thing as a simple double-click program for coworkers with no technical background, so anyone could run a search or refresh the spreadsheet without installing anything or touching a command line.</li>
     </ul>
@@ -124,9 +128,9 @@
     <p class="section-label">Results</p>
     <h2>Impact</h2>
     <p class="lede">
-      What used to be manual, one-market-at-a-time searching now runs unattended. On its very
-      first day of real use, it had already found 130+ qualified candidates across 8 target
-      markets.
+      What used to be manual, one-market-at-a-time searching now runs unattended. During its
+      first day of production use, the system identified more than 130 candidates across eight
+      target markets.
     </p>
     <div class="stats-grid">
       <div class="stat-item reveal">
@@ -152,12 +156,12 @@
 
 <section class="case-section">
   <div class="container">
-    <p class="section-label">What I Learned</p>
+    <p class="section-label">Engineering Lessons</p>
     <h2>Reflections</h2>
     <ul class="bullet-list">
-      <li>Designing how a non-technical coworker would actually use the tool took more back-and-forth than the search logic itself — a command-line flag made sense to me, but the right answer for someone who'd never open a terminal turned out to be one simple question asked out loud when the program starts.</li>
-      <li>A fit score is only useful if a recruiter can tell whether to trust it. Having the AI write a short reason alongside every score, the same way a person would jot down a first impression, mattered more for actually getting the tool used than making the scoring itself more sophisticated.</li>
-      <li>Right before a deadline, I found a change I could make quickly but couldn't safely test in time — I shipped the version that already worked instead of gambling on an untested rebuild, and saved the improvement for the next round.</li>
+      <li><strong>Designing for non-technical users is its own engineering problem.</strong> A command-line flag made sense to me, but the right interface for someone who'd never open a terminal turned out to be one simple question asked out loud when the program starts — this took more iteration than the search logic itself.</li>
+      <li><strong>A fit score is only useful if a recruiter can tell whether to trust it.</strong> Having the LLM write a short rationale alongside every score, the same way a person would jot down a first impression, mattered more for actual adoption than making the scoring itself more sophisticated.</li>
+      <li><strong>Shipping a known-working version beats gambling on an untested one.</strong> Right before a deadline, I identified a change I could make quickly but couldn't safely test in time — I shipped the version that already worked and saved the improvement for the next round.</li>
     </ul>
   </div>
 </section>

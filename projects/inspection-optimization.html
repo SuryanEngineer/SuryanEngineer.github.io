@@ -4,17 +4,17 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Inspection Assignment &amp; Optimization — Suryan Engineer</title>
-<meta name="description" content="Case study: a Python optimization engine that assigns thousands of field inspections while balancing geography, workload, and operational constraints." />
+<meta name="description" content="Project: a Python optimization engine that assigns thousands of field inspections while balancing geography, workload, and operational constraints." />
 
 <link rel="canonical" href="https://suryanengineer.github.io/projects/inspection-optimization.html" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://suryanengineer.github.io/projects/inspection-optimization.html" />
 <meta property="og:title" content="Inspection Assignment &amp; Optimization — Suryan Engineer" />
-<meta property="og:description" content="Case study: a Python optimization engine that assigns thousands of field inspections while balancing geography, workload, and operational constraints." />
+<meta property="og:description" content="Project: a Python optimization engine that assigns thousands of field inspections while balancing geography, workload, and operational constraints." />
 <meta property="og:site_name" content="Suryan Engineer" />
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:title" content="Inspection Assignment &amp; Optimization — Suryan Engineer" />
-<meta name="twitter:description" content="Case study: a Python optimization engine that assigns thousands of field inspections while balancing geography, workload, and operational constraints." />
+<meta name="twitter:description" content="Project: a Python optimization engine that assigns thousands of field inspections while balancing geography, workload, and operational constraints." />
 <link rel="icon" href="data:,">
 <link rel="stylesheet" href="../css/style.css" />
 </head>
@@ -47,12 +47,16 @@
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
       All projects
     </a>
-    <p class="section-label">CMCS · Production System</p>
+    <div class="hero-meta">
+      <p class="section-label">CMCS · Production System</p>
+      <span class="project-year">2026</span>
+    </div>
     <h1>Inspection Assignment &amp; Optimization</h1>
     <p class="one-liner">
-      An AI-assisted Python optimization engine that assigns roughly 5,000 field inspections
-      to inspectors twice a year — balancing geography, workload, preferences, and operational
-      constraints — cutting assignment turnaround from days to hours.
+      A Python-based optimization system that assigns approximately 5,000 field inspections
+      twice annually while balancing geographic proximity, inspector workload, preferences, and
+      operational constraints. The system reduced assignment turnaround from days to hours and
+      incorporates LLM-assisted analysis of unstructured inspector preferences.
     </p>
     <div class="case-tags">
       <span class="tech-tag">Python</span>
@@ -69,13 +73,13 @@
 <section class="case-section">
   <div class="container">
     <p class="section-label">The Problem</p>
-    <h2>Thousands of inspections, a tool that didn't optimize</h2>
+    <h2>Thousands of inspections, without a unified optimization model</h2>
     <p class="lede">
       CMCS assigns roughly 5,000 inspections across its inspector network twice a year. Before
-      this system, a tool already generated those assignments, but it didn't weigh geographic
-      proximity, inspector workload, and scheduling preferences together — so the results were
-      often inefficient, parts of the process stayed tedious to run, and a full cycle still took
-      multiple days without scaling as inspection volume grew.
+      this system, a tool already generated those assignments, but it did not weigh geographic
+      proximity, inspector workload, and scheduling preferences together, so the results were
+      often inefficient, parts of the process remained tedious to run, and a full cycle still
+      took multiple days without scaling as inspection volume grew.
     </p>
   </div>
 </section>
@@ -85,10 +89,12 @@
     <p class="section-label">The Approach</p>
     <h2>An optimization-first assignment engine</h2>
     <p class="lede">
-      I designed a Python-based system that treats assignment as a real optimization problem —
-      encoding geography, workload, and preferences as constraints and objectives, then producing
-      assignments the operations team can act on directly, with no manual re-entry. It also
-      layers in AI-assisted components alongside the core optimization logic (see below).
+      I designed the system as a constrained optimization problem rather than a sequence of
+      manual assignment rules. Geographic proximity, workload, inspection count, availability,
+      and inspector preferences are incorporated into the assignment process, with the resulting
+      schedules generated directly in a format the operations team can use. LLM-assisted
+      components are used to interpret unstructured preference notes alongside the deterministic
+      optimization logic (see below).
     </p>
 
     <div class="pipeline">
@@ -123,8 +129,8 @@
       <li><strong>Geocoding &amp; geographic processing:</strong> addresses resolved to coordinates with geopy, and distances between inspectors and inspection sites computed to drive the geography objective. Each inspector's home base, coverage range, and local-vs.-travel split are visible directly on the map.</li>
       <li><strong>Clustering &amp; grouped assignment:</strong> travel inspections outside every nearby inspector's range are grouped into clusters, so a whole cluster of nearby work can be assigned to one inspector in a single pass instead of one inspection at a time.</li>
       <li><strong>Workload balancing:</strong> each inspector's current load and preferences modeled as constraints so assignments don't overload any one person.</li>
-      <li><strong>AI-assisted preference ranking:</strong> uses LLM APIs (Claude, Gemini) to read free-text notes the person running the assignment writes in for a given inspector — an inspector who doesn't want to work the south side of Chicago, or one who lives in an RV and travels a self-described route — and folds that directly into how candidates are ranked for a given cluster, alongside stated availability and other preferences.</li>
-      <li><strong>Assignment / optimization:</strong> a hand-rolled construction + local-search heuristic for the <strong>Generalized Assignment Problem (GAP)</strong> — each inspection is assigned to exactly one inspector, maximizing total fit score subject to two capacity ceilings enforced simultaneously (total workdays and total inspection count). The production path runs a fairness-aware variant on top of the base solver, adding dual-ordering bin-packing fill and a rescue pass so capacity doesn't fragment unevenly across inspectors. It's hand-rolled instead of built on an off-the-shelf MILP solver (PuLP/OR-Tools) since neither could be installed in the environment this was built in — a proper solver is the natural next upgrade.</li>
+      <li><strong>LLM-assisted preference ranking:</strong> uses LLM APIs (Claude, Gemini) to read free-text notes the person running the assignment writes in for a given inspector — an inspector who doesn't want to work the south side of Chicago, or one who lives in an RV and travels a self-described route — and folds that directly into how candidates are ranked for a given cluster, alongside stated availability and other preferences.</li>
+      <li><strong>Assignment / optimization:</strong> the assignment problem is formulated as a variant of the <strong>Generalized Assignment Problem (GAP)</strong>, with each inspection assigned to exactly one inspector while maximizing an overall fit score subject to simultaneous capacity constraints on total workdays and inspection count. The production implementation uses a custom constructive and local-search heuristic rather than an off-the-shelf MILP solver. A fairness-aware extension adds dual-ordering bin-packing logic and a rescue pass to reduce uneven capacity fragmentation across inspectors.</li>
       <li><strong>Output:</strong> results written directly to formatted Excel schedules, so the operations team could act on them without manual re-entry.</li>
     </ul>
   </div>
@@ -135,10 +141,10 @@
     <p class="section-label">Results</p>
     <h2>Impact</h2>
     <p class="lede">
-      The new pipeline cuts assignment turnaround from multiple days to hours, and reduces the
-      wasted travel and workload imbalance the old tool had no way to account for. Exact dollar
-      savings aren't tracked yet, but less unnecessary travel and rework is a direct cost
-      reduction for CMCS.
+      The pipeline reduced assignment turnaround from multiple days to hours while incorporating
+      geographic proximity, workload balance, and inspector preferences into the assignment
+      process. It is now used to generate assignments for approximately 5,000 inspections on a
+      semiannual cycle.
     </p>
     <div class="stats-grid cols-3">
       <div class="stat-item reveal">
@@ -176,12 +182,12 @@
 
 <section class="case-section">
   <div class="container">
-    <p class="section-label">What I Learned</p>
+    <p class="section-label">Engineering Lessons</p>
     <h2>Reflections</h2>
     <ul class="bullet-list">
-      <li>Translating a people-facing operational process into a formal optimization problem took as much time understanding constraints as it did writing code.</li>
-      <li>Balancing competing objectives — distance, workload, preference — meant real tradeoffs, not just "optimize everything."</li>
-      <li>Some of the most useful design work happened away from the keyboard: talking through the most tedious, error-prone parts of the old process with a coworker who ran it every cycle, then turning that into a concrete plan for what the system should actually optimize — not just re-automate the old tool's steps one-for-one.</li>
+      <li><strong>Formalizing a people-facing process takes as much time as implementing it.</strong> Translating an operational workflow into a formal optimization problem required as much time understanding constraints as it did writing code.</li>
+      <li><strong>Competing objectives require explicit tradeoffs.</strong> Balancing distance, workload, and preference meant real tradeoffs, not an "optimize everything" objective.</li>
+      <li><strong>The best design input often comes from the people running the process.</strong> Discussing the most tedious, error-prone parts of the old workflow with the coworker who ran it every cycle shaped what the system should actually optimize, rather than simply re-automating the old tool's steps one-for-one.</li>
     </ul>
   </div>
 </section>

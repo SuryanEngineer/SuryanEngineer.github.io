@@ -4,17 +4,17 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Aspire Choice Period Assignment System — Suryan Engineer</title>
-<meta name="description" content="Case study: leading a three-person team to build an automated, preference-driven class assignment system for Hathaway Brown School's Aspire Choice Period." />
+<meta name="description" content="Project: leading a three-person team to build an automated, preference-driven class assignment system for Hathaway Brown School's Aspire Choice Period." />
 
 <link rel="canonical" href="https://suryanengineer.github.io/projects/aspire-choice-period.html" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://suryanengineer.github.io/projects/aspire-choice-period.html" />
 <meta property="og:title" content="Aspire Choice Period Assignment System — Suryan Engineer" />
-<meta property="og:description" content="Case study: leading a three-person team to build an automated, preference-driven class assignment system for Hathaway Brown School&#39;s Aspire Choice Period." />
+<meta property="og:description" content="Project: leading a three-person team to build an automated, preference-driven class assignment system for Hathaway Brown School&#39;s Aspire Choice Period." />
 <meta property="og:site_name" content="Suryan Engineer" />
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:title" content="Aspire Choice Period Assignment System — Suryan Engineer" />
-<meta name="twitter:description" content="Case study: leading a three-person team to build an automated, preference-driven class assignment system for Hathaway Brown School&#39;s Aspire Choice Period." />
+<meta name="twitter:description" content="Project: leading a three-person team to build an automated, preference-driven class assignment system for Hathaway Brown School&#39;s Aspire Choice Period." />
 <link rel="icon" href="data:,">
 <link rel="stylesheet" href="../css/style.css" />
 </head>
@@ -47,14 +47,17 @@
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
       All projects
     </a>
-    <p class="section-label">Hathaway Brown School · Pro Bono Project</p>
+    <div class="hero-meta">
+      <p class="section-label">Hathaway Brown School · Pro Bono Project</p>
+      <span class="project-year">2025</span>
+    </div>
     <h1>Aspire Choice Period Assignment System</h1>
     <p class="one-liner">
-      A preference-driven class assignment system built for Hathaway Brown's Aspire program —
-      every day, students submit their choices through a Form, and the system turns them into a
-      full, capacity-respecting assignment in minutes, automating a process a volunteer
-      previously had to run by hand, every day, for the length of the program. I led the
-      three-person team that built it and was the school's primary point of contact throughout.
+      A preference-driven class assignment system developed for Hathaway Brown's Aspire program.
+      Students submit their preferences through a Google Form, and the system generates
+      capacity-constrained assignments through an automated matching process. I led the
+      three-person development team and served as the primary point of contact with the school
+      throughout the project.
     </p>
     <div class="case-tags">
       <span class="tech-tag">Google Apps Script</span>
@@ -68,18 +71,16 @@
 <section class="case-section">
   <div class="container">
     <p class="section-label">The Problem</p>
-    <h2>A daily assignment problem, done by hand every day</h2>
+    <h2>A recurring assignment problem managed manually</h2>
     <p class="lede">
       Aspire is a Hathaway Brown program that works with middle school girls in Greater
       Cleveland who are navigating academic hardship and working toward being the first in
       their families to attend college, taught in part by high school and college students
-      under the mentorship of experienced educators. During its daily Choice Period,
-      participants pick from a set of elective sessions, each with a hard cap on how many
-      students it can hold — and someone has to turn that stack of preferences into a full,
-      capacity-respecting room assignment before class starts, every single day the program
-      runs. Before this system, a volunteer did that by hand every day, and it was slow and
-      imperfect — exactly the kind of repetitive, error-prone process that doesn't hold up over
-      weeks of daily repetition.
+      under the mentorship of experienced educators. During its daily Choice Period, students
+      select from a set of elective sessions with fixed capacity limits. Before this system was
+      developed, a volunteer manually converted student preferences into class assignments each
+      day. The process was time-consuming, repetitive, and susceptible to inconsistent
+      assignments as preferences and capacities changed.
     </p>
   </div>
 </section>
@@ -89,13 +90,11 @@
     <p class="section-label">The Approach</p>
     <h2>A workflow simple enough for anyone to run</h2>
     <p class="lede">
-      I designed the whole system around a rule: the more invisible the technology, the better.
-      Each day, the administrator opened a Google Form, and students submitted their choices
-      through it — the same kind of form they'd used for anything else at the program, nothing
-      new to learn. Every response landed in a Google Sheet, and Apps Script did the rest:
-      validating the incoming responses, running the matching engine, and sharing out the
-      finished class assignments for students and staff to see. What used to be a volunteer's
-      daily task became a single click, repeated every day the program ran.
+      The system was designed around a simple operational requirement: staff should be able to
+      run the entire workflow without interacting with the underlying code. Students submit
+      preferences through a familiar Google Form, responses are captured in Google Sheets, and
+      Apps Script validates the data, executes the matching algorithm, and generates the final
+      assignments.
     </p>
     <div class="pipeline">
       <span class="pipeline-step">Google Form (student input)</span>
@@ -114,25 +113,22 @@
     <p class="section-label">Technical Implementation</p>
     <h2>Choosing the matching algorithm</h2>
     <p class="lede">
-      The core problem is a bipartite graph: students on one side, sessions on the other, with
-      an edge for every session a student ranked and a hard capacity on every session node.
-      The actual goal was to fill every session while giving as many students as possible one of
-      their higher-ranked choices — which meant the right formulation was a
-      <strong>maximum matching problem</strong>, not a two-sided stable matching like a residency
-      match. Sessions don't have preferences of their own, so the extra machinery a
-      Gale-Shapley-style algorithm brings wasn't buying anything; a matching algorithm that
-      directly maximized the number of students placed into their best available choice, subject
-      to capacity, was the more honest model of the actual objective and was far simpler to
-      implement correctly in Apps Script within Google's execution-time limits.
+      The assignment problem can be represented as a capacitated bipartite matching problem,
+      with students on one side and sessions on the other. An edge represents a student's ranked
+      preference, while each session has a fixed capacity. The objective is to maximize the
+      quality of student assignments subject to those capacity constraints, making a
+      <strong>maximum matching</strong> formulation more appropriate than a two-sided
+      stable-matching algorithm — sessions don't have preferences of their own, so the extra
+      machinery a Gale-Shapley-style approach brings wasn't buying anything, and a matching
+      algorithm was far simpler to implement correctly in Apps Script within Google's
+      execution-time limits.
     </p>
     <p class="lede">
-      The engine works through each student's ranked list in order, using augmenting paths to
-      place students into their next-available preference whenever a session is full, so a
-      later, lower-priority student doesn't block an earlier one out of a session it could
-      still reach through a different path. Because the whole thing runs against a few hundred
-      students rather than thousands, it re-solves from scratch in well under a minute — fast
-      enough that the liaison could change a capacity or add late responses and just run it
-      again.
+      The engine processes ranked preferences using augmenting paths, allowing assignments to be
+      reconfigured when an initially selected session is full. This prevents an earlier
+      assignment from unnecessarily blocking a higher-priority preference for another student.
+      The system resolves the full dataset in well under a minute and can be re-run after
+      changes to capacities or late submissions.
     </p>
   </div>
 </section>
@@ -140,24 +136,21 @@
 <section class="case-section">
   <div class="container">
     <p class="section-label">Edge Cases</p>
-    <h2>Designing for students who try to break it</h2>
+    <h2>Designing for adversarial and incomplete input</h2>
     <p class="lede">
-      Once a few students realized the system existed, some of them tried to game it — and the
-      Form had to be treated as an adversarial input, not a clean data source. Students submitted
-      the form more than once, which meant the engine had to always resolve to a single, latest
-      response per student rather than quietly summing duplicates. Some left preferences blank,
-      ranked the same session twice, or submitted after a session had already filled hoping to
-      get bumped in ahead of someone else. A few figured out that listing only one "safe" choice
-      guaranteed them a seat there rather than risking a more competitive option elsewhere, which
-      meant the matching logic had to treat an incomplete preference list as a real, deliberate
-      input rather than an error to reject.
+      Once students began interacting with the system, the Form had to be treated as an
+      uncontrolled input source rather than a clean dataset. The system therefore had to account
+      for duplicate submissions, incomplete preferences, repeated rankings, late responses, and
+      attempts to manipulate outcomes through strategically limited preference lists — for
+      example, listing only one "safe" choice to guarantee a seat there rather than risking a
+      more competitive option elsewhere.
     </p>
     <p class="lede">
       Before the system ever touched a real response, I wrote a battery of synthetic test cases
-      that mirrored exactly this behavior — duplicate submissions, blank and repeated rankings,
-      late entries, capacity ties — and ran the matching engine against all of them until every
-      case resolved to one clean, valid assignment. That testing pass caught more real problems
-      than anything in the "happy path" version of the system ever would have.
+      that mirrored this behavior — duplicate submissions, blank and repeated rankings, late
+      entries, capacity ties — and ran the matching engine against all of them until every case
+      resolved to one clean, valid assignment. That testing pass caught more real problems than
+      anything in the "happy path" version of the system would have.
     </p>
   </div>
 </section>
@@ -167,15 +160,13 @@
     <p class="section-label">Leading the Team</p>
     <h2>Delegating, tracking, and being the point of contact</h2>
     <p class="lede">
-      I led a three-person team through the build and split ownership along clear lines: I
-      owned the matching engine and the Apps Script core, and delegated the Form/response-sheet
-      setup and the validation-and-testing pass to the other two, with regular check-ins to
-      track progress and unblock whichever piece was behind. I was also the sole point of
-      contact with the school's project liaison — taking requirements that were sometimes
-      informal or non-technical (a grade-level priority rule, a hard cap that changed midway
-      through), translating them into concrete features, and reporting progress and any
-      blockers back in terms the liaison could act on without needing to understand how the
-      system worked underneath.
+      I led a three-person development team, owning the matching engine and core Apps Script
+      implementation while delegating Form and response-sheet setup and the validation-and-testing
+      pass to the other two, with regular check-ins to track progress and unblock whichever piece
+      was behind. I also served as the primary liaison with the school, translating informal or
+      non-technical requirements — a grade-level priority rule, a hard cap that changed midway
+      through the program — into concrete system specifications, and communicating implementation
+      status and limitations back to a nontechnical stakeholder.
     </p>
   </div>
 </section>
@@ -183,15 +174,13 @@
 <section class="case-section">
   <div class="container">
     <p class="section-label">Rolling It Out</p>
-    <h2>Teaching a system to the people who'd actually run it</h2>
+    <h2>Designing for independent operation</h2>
     <p class="lede">
-      Building the system was only half the job — it also had to work without me in the room.
-      I walked the liaison and the rest of the staff through the live Form and Sheet, showing
-      them exactly how to read the generated assignment, re-run it after new responses came in,
-      and handle an exception by hand if something looked off, all without touching Apps Script
-      or needing to understand the matching algorithm behind it. The whole workflow was built to
-      be boring and repeatable on purpose, so the school could run it again next cycle on their
-      own.
+      The system was designed so that staff could operate it without technical assistance. I
+      trained the program liaison and staff on submitting responses, generating assignments,
+      re-running the process after updates, and handling exceptions manually when necessary. The
+      final workflow required no interaction with Apps Script or other underlying implementation
+      details.
     </p>
   </div>
 </section>
@@ -201,11 +190,10 @@
     <p class="section-label">Results</p>
     <h2>Impact</h2>
     <p class="lede">
-      The system replaced a volunteer's slow, imperfect, by-hand process with one that
-      regenerates a full, capacity-respecting class assignment in minutes, every single day the
-      program ran — and it held up against real students actively trying to find its edge cases.
-      <span class="todo-flag">TODO: add the real number of students and sessions this ran for,
-      if you'd like it here.</span>
+      The system replaced the existing manual assignment process with a repeatable workflow that
+      generated capacity-constrained assignments within minutes and could be re-run whenever
+      responses or capacities changed. The system was designed to remain reliable under the
+      incomplete and duplicate submissions encountered during actual use.
     </p>
   </div>
 </section>
@@ -218,9 +206,9 @@
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/></svg>
       <p>
         <strong>Portfolio demonstration:</strong> no real student names, preference submissions,
-        or other Hathaway Brown internal data appear anywhere on this page. This case study
-        describes the system's design, the algorithm behind it, and my role leading the team
-        that built it — not any actual student data.
+        or other Hathaway Brown internal data appear anywhere on this page. This project
+        description covers the system's design, the algorithm behind it, and my role leading
+        the team that built it — not any actual student data.
       </p>
     </div>
   </div>
@@ -228,13 +216,13 @@
 
 <section class="case-section">
   <div class="container">
-    <p class="section-label">What I Learned</p>
+    <p class="section-label">Design Lessons</p>
     <h2>Reflections</h2>
     <ul class="bullet-list">
-      <li><strong>Being the single point of contact is its own skill.</strong> Translating an informal, non-technical ask from a school liaison into a concrete feature — and translating progress back the other way — mattered as much as anything I wrote in Apps Script.</li>
-      <li><strong>Teaching a system is different from building it.</strong> The version staff could run on their own without me had to be simpler and more boring than the version I'd have built for myself.</li>
-      <li><strong>The right algorithm follows from the actual objective.</strong> It was tempting to reach for a more familiar two-sided matching approach; reasoning through what was actually being optimized — filling every seat, honoring rank, respecting capacity — pointed to a simpler, more direct answer.</li>
-      <li><strong>Real users will find every edge your test cases missed.</strong> Designing synthetic test cases around how students would actually try to game the form caught problems no happy-path test ever surfaced.</li>
+      <li><strong>Stakeholder communication is part of the engineering process.</strong> Translating informal operational requirements into explicit system behavior was necessary to build a solution that matched the school's actual workflow.</li>
+      <li><strong>Independent operation should be treated as a system requirement.</strong> The final product had to be simple enough for staff to use without understanding the implementation behind it.</li>
+      <li><strong>Algorithm selection should follow the objective.</strong> Modeling the problem directly as a capacitated matching problem avoided unnecessary complexity and better reflected the actual assignment requirements.</li>
+      <li><strong>Real users will find every edge case a test suite misses.</strong> Designing synthetic test cases around how students would actually try to game the form caught problems no happy-path test ever surfaced.</li>
     </ul>
   </div>
 </section>
