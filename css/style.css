@@ -674,6 +674,18 @@ section.alt { background: var(--bg-alt); border-top: 1px solid var(--border); bo
   margin: 8px 0 20px;
 }
 
+.screenshot-pair {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin: 16px 0 4px;
+}
+.screenshot-pair .screenshot { margin: 0; }
+.screenshot-pair .screenshot-caption { margin: 8px 0 0; }
+@media (max-width: 720px) {
+  .screenshot-pair { grid-template-columns: 1fr; }
+}
+
 /* Anonymization example table */
 .anon-example {
   display: grid;
