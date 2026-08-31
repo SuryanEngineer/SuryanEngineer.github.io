@@ -47,10 +47,7 @@
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
       All projects
     </a>
-    <div class="hero-meta">
-      <p class="section-label">Hathaway Brown School · Pro Bono Project</p>
-      <span class="project-year">2025</span>
-    </div>
+    <p class="section-label">Hathaway Brown School · Pro Bono Project · 2025</p>
     <h1>Aspire Choice Period Assignment System</h1>
     <p class="one-liner">
       A preference-driven class assignment system developed for Hathaway Brown's Aspire program.
@@ -200,26 +197,9 @@
 
 <section class="case-section">
   <div class="container">
-    <p class="section-label">Confidentiality &amp; Data</p>
-    <h2>How this project is shown publicly</h2>
-    <div class="confidential-note">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/></svg>
-      <p>
-        <strong>Portfolio demonstration:</strong> no real student names, preference submissions,
-        or other Hathaway Brown internal data appear anywhere on this page. This project
-        description covers the system's design, the algorithm behind it, and my role leading
-        the team that built it — not any actual student data.
-      </p>
-    </div>
-  </div>
-</section>
-
-<section class="case-section">
-  <div class="container">
     <p class="section-label">Design Lessons</p>
     <h2>Reflections</h2>
     <ul class="bullet-list">
-      <li><strong>Stakeholder communication is part of the engineering process.</strong> Translating informal operational requirements into explicit system behavior was necessary to build a solution that matched the school's actual workflow.</li>
       <li><strong>Independent operation should be treated as a system requirement.</strong> The final product had to be simple enough for staff to use without understanding the implementation behind it.</li>
       <li><strong>Algorithm selection should follow the objective.</strong> Modeling the problem directly as a capacitated matching problem avoided unnecessary complexity and better reflected the actual assignment requirements.</li>
       <li><strong>Real users will find every edge case a test suite misses.</strong> Designing synthetic test cases around how students would actually try to game the form caught problems no happy-path test ever surfaced.</li>
@@ -246,10 +226,20 @@
     <p>&copy; <span data-year></span> Suryan Engineer. Built with plain HTML, CSS &amp; JS on GitHub Pages.</p>
     <div class="footer-links">
       <a href="https://linkedin.com/in/suryanengineer" target="_blank" rel="noopener">LinkedIn</a>
-      <a href="mailto:suryanengineer1@gmail.com">Email</a>
+      <button type="button" class="footer-contact-trigger" data-contact-trigger="email" data-contact-value="suryanengineer1@gmail.com">Email</button>
     </div>
   </div>
 </footer>
+
+<div class="contact-modal-overlay" data-contact-modal hidden>
+  <div class="contact-modal" role="dialog" aria-modal="true" aria-labelledby="contact-modal-label">
+    <button type="button" class="contact-modal-close" data-contact-modal-close aria-label="Close">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+    <p class="contact-modal-label" id="contact-modal-label" data-contact-modal-label>Email</p>
+    <p class="contact-modal-value" data-contact-modal-value>suryanengineer1@gmail.com</p>
+  </div>
+</div>
 
 <script src="../js/main.js"></script>
 </body>

@@ -363,30 +363,6 @@ section.alt { background: var(--bg-alt); border-top: 1px solid var(--border); bo
   letter-spacing: 0.02em;
 }
 
-.card-top {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 10px;
-}
-
-.project-year {
-  font-family: var(--font-mono);
-  font-size: 0.76rem;
-  color: var(--text-faint);
-  flex-shrink: 0;
-}
-
-.hero-meta {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 10px;
-  margin-bottom: 10px;
-}
-.hero-meta .section-label { margin-bottom: 0; }
-
-
 .project-card h3 { font-size: 1.25rem; }
 
 .project-card p.desc { color: var(--text-muted); font-size: 0.95rem; }
@@ -498,21 +474,101 @@ section.alt { background: var(--bg-alt); border-top: 1px solid var(--border); bo
 }
 
 .contact-links { display: flex; flex-direction: column; gap: 10px; }
-.contact-links a {
+.contact-links a,
+.contact-links button {
   display: flex;
   align-items: center;
   gap: 10px;
+  width: 100%;
+  font-family: inherit;
   font-weight: 600;
   font-size: 0.98rem;
   padding: 12px 16px;
   border: 1px solid var(--border);
   border-radius: var(--radius-sm);
   background: var(--bg-card);
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
   transition: border-color 0.15s ease, transform 0.15s ease;
 }
 
-.contact-links a:hover { border-color: var(--accent); transform: translateX(3px); }
+.contact-links a:hover,
+.contact-links button:hover { border-color: var(--accent); transform: translateX(3px); }
 .contact-links svg { width: 16px; height: 16px; color: var(--accent); flex-shrink: 0; }
+
+/* ---------- Contact modal ---------- */
+.contact-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(9, 11, 15, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  z-index: 100;
+}
+.contact-modal-overlay[hidden] { display: none; }
+
+body.modal-open { overflow: hidden; }
+
+.contact-modal {
+  position: relative;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-hover);
+  padding: 40px 44px;
+  max-width: 90vw;
+  text-align: center;
+  animation: contactModalPop 0.16s ease;
+}
+
+@keyframes contactModalPop {
+  from { opacity: 0; transform: scale(0.96); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.contact-modal-close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: var(--bg-card);
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: border-color 0.15s ease, color 0.15s ease;
+}
+.contact-modal-close:hover { color: var(--text); border-color: var(--border-strong); }
+.contact-modal-close svg { width: 14px; height: 14px; }
+
+.contact-modal-label {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--text-faint);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.contact-modal-value {
+  font-family: var(--font-mono);
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--accent);
+}
+
+@media (max-width: 480px) {
+  .contact-modal { padding: 32px 24px; }
+  .contact-modal-value { font-size: 1.05rem; }
+}
 
 /* ---------- Footer ---------- */
 .site-footer {
@@ -527,8 +583,19 @@ section.alt { background: var(--bg-alt); border-top: 1px solid var(--border); bo
 
 .site-footer p { color: var(--text-faint); font-size: 0.86rem; }
 .footer-links { display: flex; gap: 20px; }
-.footer-links a { color: var(--text-faint); font-size: 0.86rem; transition: color 0.15s ease; }
-.footer-links a:hover { color: var(--text); }
+.footer-links a,
+.footer-links button {
+  color: var(--text-faint);
+  font-size: 0.86rem;
+  font-family: inherit;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  transition: color 0.15s ease;
+}
+.footer-links a:hover,
+.footer-links button:hover { color: var(--text); }
 
 /* ---------- Load-in animation ----------
    Pure CSS, not JS/scroll-triggered: every .reveal / .project-card fades in
@@ -657,20 +724,6 @@ section.alt { background: var(--bg-alt); border-top: 1px solid var(--border); bo
 }
 .results-table td.metric { color: var(--text-muted); }
 .results-table td.after-val { color: var(--accent); font-weight: 600; }
-
-/* Confidentiality note */
-.confidential-note {
-  display: flex;
-  gap: 14px;
-  background: var(--accent-soft);
-  border: 1px solid var(--accent);
-  border-radius: var(--radius-md);
-  padding: 20px 22px;
-  margin-top: 10px;
-}
-.confidential-note svg { width: 20px; height: 20px; color: var(--accent); flex-shrink: 0; margin-top: 2px; }
-.confidential-note p { color: var(--text); font-size: 0.92rem; margin: 0; max-width: 62ch; }
-.confidential-note strong { color: var(--accent-strong); }
 
 /* Screenshot / figure placeholder */
 .figure-placeholder {

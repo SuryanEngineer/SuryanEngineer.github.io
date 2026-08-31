@@ -47,10 +47,7 @@
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
       All projects
     </a>
-    <div class="hero-meta">
-      <p class="section-label">CMCS · Production System</p>
-      <span class="project-year">2026</span>
-    </div>
+    <p class="section-label">CMCS · Production System · 2026</p>
     <h1>Phase 3 Inspection Generator</h1>
     <p class="one-liner">
       Developed a geospatial matching system that identifies eligible training inspections for
@@ -165,10 +162,20 @@
     <p>&copy; <span data-year></span> Suryan Engineer. Built with plain HTML, CSS &amp; JS on GitHub Pages.</p>
     <div class="footer-links">
       <a href="https://linkedin.com/in/suryanengineer" target="_blank" rel="noopener">LinkedIn</a>
-      <a href="mailto:suryanengineer1@gmail.com">Email</a>
+      <button type="button" class="footer-contact-trigger" data-contact-trigger="email" data-contact-value="suryanengineer1@gmail.com">Email</button>
     </div>
   </div>
 </footer>
+
+<div class="contact-modal-overlay" data-contact-modal hidden>
+  <div class="contact-modal" role="dialog" aria-modal="true" aria-labelledby="contact-modal-label">
+    <button type="button" class="contact-modal-close" data-contact-modal-close aria-label="Close">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+    <p class="contact-modal-label" id="contact-modal-label" data-contact-modal-label>Email</p>
+    <p class="contact-modal-value" data-contact-modal-value>suryanengineer1@gmail.com</p>
+  </div>
+</div>
 
 <script src="../js/main.js"></script>
 </body>

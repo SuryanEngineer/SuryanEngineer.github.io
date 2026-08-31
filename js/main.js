@@ -65,6 +65,49 @@
     });
   }
 
+  /* ---------- Contact modal (email / phone) ----------
+     Clicking the email or phone tile in the Contact section opens a
+     centered popup with that value, over a dimmed overlay. Clicking
+     anywhere on the dimmed overlay (outside the popup box) closes it. */
+  function initContactModal() {
+    var overlay = document.querySelector('[data-contact-modal]');
+    if (!overlay) return;
+
+    var labelEl = overlay.querySelector('[data-contact-modal-label]');
+    var valueEl = overlay.querySelector('[data-contact-modal-value]');
+    var closeBtn = overlay.querySelector('[data-contact-modal-close]');
+    var triggers = document.querySelectorAll('[data-contact-trigger]');
+
+    function openModal(type, value) {
+      labelEl.textContent = type === 'phone' ? 'Phone' : 'Email';
+      valueEl.textContent = value;
+      overlay.hidden = false;
+      document.body.classList.add('modal-open');
+    }
+
+    function closeModal() {
+      overlay.hidden = true;
+      document.body.classList.remove('modal-open');
+    }
+
+    triggers.forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        openModal(btn.getAttribute('data-contact-trigger'), btn.getAttribute('data-contact-value'));
+      });
+    });
+
+    // Click anywhere on the gray overlay itself (not the popup box) closes it.
+    overlay.addEventListener('click', function (e) {
+      if (e.target === overlay) closeModal();
+    });
+
+    if (closeBtn) closeBtn.addEventListener('click', closeModal);
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && !overlay.hidden) closeModal();
+    });
+  }
+
   /* Load-in animation is handled entirely by CSS (see .reveal / .project-card
      in style.css) — no JS needed, so it can't fail silently. */
 
@@ -96,6 +139,7 @@
   document.addEventListener('DOMContentLoaded', function () {
     initThemeToggle();
     initMobileNav();
+    initContactModal();
     initYear();
     logConsoleMessage();
   });

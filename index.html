@@ -120,18 +120,14 @@
       </div>
       <p class="section-sub">
         Selected work spanning software development, automation, optimization, data analysis,
-        and quantitative systems. Projects involving organizational or academic data include
-        confidentiality notes describing the scope of information shown publicly.
+        and quantitative systems.
       </p>
     </div>
 
     <div class="project-grid">
 
       <article class="project-card">
-        <div class="card-top">
-          <span class="tier-tag">Personal Project · Active Development</span>
-          <span class="project-year">2026</span>
-        </div>
+        <span class="tier-tag">Personal Project · Active Development · 2026</span>
         <h3>Forecast: Fantasy Stock Market for Competitive Fortnite</h3>
         <p class="desc">
           A fantasy stock market for competitive Fortnite in which professional players are
@@ -152,10 +148,7 @@
       </article>
 
       <article class="project-card">
-        <div class="card-top">
-          <span class="tier-tag">Hathaway Brown School · Pro Bono Project</span>
-          <span class="project-year">2025</span>
-        </div>
+        <span class="tier-tag">Hathaway Brown School · Pro Bono Project · 2025</span>
         <h3>Aspire Choice Period Assignment System</h3>
         <p class="desc">
           Led a three-person team in developing an automated, preference-driven class
@@ -175,10 +168,7 @@
       </article>
 
       <article class="project-card">
-        <div class="card-top">
-          <span class="tier-tag">CMCS · $250K Projected Annual Savings</span>
-          <span class="project-year">2026</span>
-        </div>
+        <span class="tier-tag">CMCS · $250K Projected Annual Savings · 2026</span>
         <h3>Geographical Inspection Recruitment Analysis</h3>
         <p class="desc">
           Developed a geospatial analysis system to identify concentrations of inefficient
@@ -199,10 +189,7 @@
       </article>
 
       <article class="project-card">
-        <div class="card-top">
-          <span class="tier-tag">CMCS · Production System</span>
-          <span class="project-year">2026</span>
-        </div>
+        <span class="tier-tag">CMCS · Production System · 2026</span>
         <h3>Inspection Assignment &amp; Optimization</h3>
         <p class="desc">
           Developed a Python-based optimization engine that assigns approximately 5,000 field
@@ -225,10 +212,7 @@
       </article>
 
       <article class="project-card">
-        <div class="card-top">
-          <span class="tier-tag">CMCS · Production System</span>
-          <span class="project-year">2025</span>
-        </div>
+        <span class="tier-tag">CMCS · Production System · 2025</span>
         <h3>Automated Email Generation System</h3>
         <p class="desc">
           Developed an automated pipeline that populates PDF templates from Excel data and
@@ -249,10 +233,7 @@
       </article>
 
       <article class="project-card">
-        <div class="card-top">
-          <span class="tier-tag">CMCS · Production System</span>
-          <span class="project-year">2026</span>
-        </div>
+        <span class="tier-tag">CMCS · Production System · 2026</span>
         <h3>NSPIRE Candidate Finder</h3>
         <p class="desc">
           Developed an automated recruiting pipeline that searches target markets for certified
@@ -272,10 +253,7 @@
       </article>
 
       <article class="project-card">
-        <div class="card-top">
-          <span class="tier-tag">CMCS · Production System</span>
-          <span class="project-year">2026</span>
-        </div>
+        <span class="tier-tag">CMCS · Production System · 2026</span>
         <h3>Phase 3 Inspection Generator</h3>
         <p class="desc">
           Developed a geospatial matching system that identifies eligible training inspections
@@ -450,26 +428,36 @@
             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM3 9h4v12H3V9Zm7 0h3.8v1.7h.1c.5-1 1.9-2 3.9-2 4.1 0 4.9 2.7 4.9 6.2V21h-4v-5.6c0-1.3 0-3-1.8-3s-2.1 1.4-2.1 2.9V21h-4V9Z"/></svg>
             linkedin.com/in/suryanengineer
           </a>
-          <a href="mailto:suryanengineer1@gmail.com">
+          <button type="button" class="contact-trigger" data-contact-trigger="email" data-contact-value="suryanengineer1@gmail.com">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v16H4z" opacity="0"/><path d="M22 6 12 13 2 6"/><rect x="2" y="4" width="20" height="16" rx="2"/></svg>
             suryanengineer1@gmail.com
-          </a>
-          <a href="tel:+12165628885">
+          </button>
+          <button type="button" class="contact-trigger" data-contact-trigger="phone" data-contact-value="(216) 562-8885">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92Z"/></svg>
             (216) 562-8885
-          </a>
+          </button>
         </div>
       </div>
     </div>
   </div>
 </section>
 
+<div class="contact-modal-overlay" data-contact-modal hidden>
+  <div class="contact-modal" role="dialog" aria-modal="true" aria-labelledby="contact-modal-label">
+    <button type="button" class="contact-modal-close" data-contact-modal-close aria-label="Close">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+    <p class="contact-modal-label" id="contact-modal-label" data-contact-modal-label>Email</p>
+    <p class="contact-modal-value" data-contact-modal-value>suryanengineer1@gmail.com</p>
+  </div>
+</div>
+
 <footer class="site-footer">
   <div class="container" style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;">
     <p>&copy; <span data-year></span> Suryan Engineer. Built with plain HTML, CSS &amp; JS on GitHub Pages.</p>
     <div class="footer-links">
       <a href="https://linkedin.com/in/suryanengineer" target="_blank" rel="noopener">LinkedIn</a>
-      <a href="mailto:suryanengineer1@gmail.com">Email</a>
+      <button type="button" class="footer-contact-trigger" data-contact-trigger="email" data-contact-value="suryanengineer1@gmail.com">Email</button>
     </div>
   </div>
 </footer>

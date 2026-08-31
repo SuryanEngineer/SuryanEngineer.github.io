@@ -47,10 +47,7 @@
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
       All projects
     </a>
-    <div class="hero-meta">
-      <p class="section-label">CMCS · $250K Projected Annual Savings</p>
-      <span class="project-year">2026</span>
-    </div>
+    <p class="section-label">CMCS · $250K Projected Annual Savings · 2026</p>
     <h1>Geographical Inspection Recruitment Analysis</h1>
     <p class="one-liner">
       CMCS incurred additional costs when inspections required inspectors to travel beyond their
@@ -189,32 +186,13 @@
 
 <section class="case-section">
   <div class="container">
-    <p class="section-label">Confidentiality &amp; Data</p>
-    <h2>How this project is shown publicly</h2>
-    <div class="confidential-note">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/></svg>
-      <p>
-        <strong>Portfolio demonstration:</strong> the screenshots on this page are from the real
-        system, showing real aggregate figures — inspector counts, cluster sizes, workload
-        volume, projected hiring needs. No client names, addresses, or other identifying details
-        appear anywhere in them; these are the kind of high-level operational numbers CMCS is
-        comfortable sharing publicly.
-      </p>
-    </div>
-  </div>
-</section>
-
-<section class="case-section">
-  <div class="container">
     <p class="section-label">Engineering Lessons</p>
     <h2>Reflections</h2>
     <ul class="bullet-list">
       <li><strong>Geocoding at scale is an engineering problem, not a data problem.</strong> A naive one-API-call-per-address approach hits rate limits within minutes on any real dataset. Batching, aggressive caching, and fallback logic for addresses that don't resolve cleanly turned a 17-minute-per-run geocoder into one that finishes in seconds on warm data.</li>
       <li><strong>Clustering algorithms need a clear contract for what the radius means, and what counts as a valid center.</strong> Early attempts produced clusters centered on empty points with no realistic hiring target nearby. Anchoring cluster centers to actual population centers made every result actionable.</li>
       <li><strong>Frontend interactivity in generated HTML needs careful scoping.</strong> Functions defined inside an IIFE are invisible to <code class="mono">onclick=</code> attributes, which resolve in the global scope — understanding the distinction between module-based and single-file embedded JavaScript patterns resolved the bug.</li>
-      <li><strong>Silent serialization failures are worth guarding against explicitly.</strong> Python's <code class="mono">json.dumps</code> serializes <code class="mono">float('nan')</code> as the literal <code class="mono">NaN</code>, which isn't valid JSON — a browser parsing it throws a SyntaxError with no visible error unless the console is open. Sanitizing NaN/Infinity to null before serialization resolved it.</li>
-      <li><strong>Forecasting needs to account for how differently inspectors behave.</strong> Applying one growth model uniformly across inspectors with very different activity levels produces numbers that are computed but not meaningful. Segmenting inspectors by activity pattern before forecasting made the Future Year Analysis results useful for planning.</li>
-      <li><strong>A rerunnable tool is worth more than a one-time analysis.</strong> A script that analyzes a snapshot of data is useful once; a tool that can be re-run on fresh data, with persistent caching and structured outputs, is useful indefinitely. This project started as the former and became the latter.</li>
+      <li><strong>A rerunnable tool is worth more than a one-time analysis.</strong> A script that analyzes a snapshot of data is useful once; a tool that can be re-run on fresh data, with persistent caching and structured outputs, is useful indefinitely.</li>
     </ul>
   </div>
 </section>
@@ -240,10 +218,20 @@
     <p>&copy; <span data-year></span> Suryan Engineer. Built with plain HTML, CSS &amp; JS on GitHub Pages.</p>
     <div class="footer-links">
       <a href="https://linkedin.com/in/suryanengineer" target="_blank" rel="noopener">LinkedIn</a>
-      <a href="mailto:suryanengineer1@gmail.com">Email</a>
+      <button type="button" class="footer-contact-trigger" data-contact-trigger="email" data-contact-value="suryanengineer1@gmail.com">Email</button>
     </div>
   </div>
 </footer>
+
+<div class="contact-modal-overlay" data-contact-modal hidden>
+  <div class="contact-modal" role="dialog" aria-modal="true" aria-labelledby="contact-modal-label">
+    <button type="button" class="contact-modal-close" data-contact-modal-close aria-label="Close">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+    <p class="contact-modal-label" id="contact-modal-label" data-contact-modal-label>Email</p>
+    <p class="contact-modal-value" data-contact-modal-value>suryanengineer1@gmail.com</p>
+  </div>
+</div>
 
 <script src="../js/main.js"></script>
 </body>
