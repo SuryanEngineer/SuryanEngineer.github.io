@@ -1,28 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-SDHG8M1EKL"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'G-SDHG8M1EKL');
-  </script>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>NSPIRE Candidate Finder — Suryan Engineer</title>
+<title>NSPIRE Candidate Finder | Suryan Engineer</title>
 <meta name="description" content="Project: an AI-assisted tool that searches the web for certified home inspectors, scores their fit, and hands recruiters a clean, ranked list." />
 
 <link rel="canonical" href="https://suryanengineer.github.io/projects/nspire-candidate-finder.html" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://suryanengineer.github.io/projects/nspire-candidate-finder.html" />
-<meta property="og:title" content="NSPIRE Candidate Finder — Suryan Engineer" />
+<meta property="og:title" content="NSPIRE Candidate Finder | Suryan Engineer" />
 <meta property="og:description" content="Project: an AI-assisted tool that searches the web for certified home inspectors, scores their fit, and hands recruiters a clean, ranked list." />
 <meta property="og:site_name" content="Suryan Engineer" />
 <meta name="twitter:card" content="summary" />
-<meta name="twitter:title" content="NSPIRE Candidate Finder — Suryan Engineer" />
+<meta name="twitter:title" content="NSPIRE Candidate Finder | Suryan Engineer" />
 <meta name="twitter:description" content="Project: an AI-assisted tool that searches the web for certified home inspectors, scores their fit, and hands recruiters a clean, ranked list." />
 <link rel="icon" href="data:,">
 <link rel="stylesheet" href="../css/style.css" />
@@ -82,7 +73,7 @@
       Recruiting inspectors required manually searching certification directories one market at
       a time, reviewing individual listings, and judging whether a candidate was worth reaching
       out to. As the candidate list grew into the hundreds, repeated searches also produced
-      duplicate candidates and inconsistent coverage across markets — and none of it scaled past
+      duplicate candidates and inconsistent coverage across markets; none of it scaled past
       a handful of markets at a time.
     </p>
   </div>
@@ -119,11 +110,11 @@
     <h2>How it works</h2>
     <ul class="bullet-list">
       <li>Searches each target market using a consistent, repeatable set of search terms, so coverage is predictable instead of random.</li>
-      <li>Reads each candidate's page and extracts the details that matter — current role, employer, certification, experience — automatically.</li>
+      <li>Reads each candidate's page and extracts the details that matter (current role, employer, certification, experience) automatically.</li>
       <li>Uses an LLM to evaluate candidate fit against a defined scoring framework and generate a concise rationale for each result, the same way a recruiter would jot down first impressions.</li>
       <li>Automatically recognizes when the same person shows up more than once (even under a slightly different listing) and combines them into one record instead of creating a duplicate.</li>
       <li>Search execution is structured to maximize coverage while respecting the limits of the underlying services.</li>
-      <li>Outputs everything into a polished, color-coded Excel file that's ready to hand off — no cleanup needed.</li>
+      <li>Outputs everything into a polished, color-coded Excel file that's ready to hand off; no cleanup needed.</li>
       <li>Packaged the whole thing as a simple double-click program for coworkers with no technical background, so anyone could run a search or refresh the spreadsheet without installing anything or touching a command line.</li>
     </ul>
   </div>
@@ -138,7 +129,7 @@
       first day of production use, the system identified more than 130 candidates across eight
       target markets.
     </p>
-    <div class="stats-grid">
+    <div class="stats-grid cols-2">
       <div class="stat-item reveal">
         <span class="stat-number">8</span>
         <span class="stat-label">Markets covered automatically</span>
@@ -146,14 +137,6 @@
       <div class="stat-item reveal">
         <span class="stat-number">130+</span>
         <span class="stat-label">Candidates found on day one</span>
-      </div>
-      <div class="stat-item reveal">
-        <span class="stat-number">2×</span>
-        <span class="stat-label">More done per search call</span>
-      </div>
-      <div class="stat-item reveal">
-        <span class="stat-number">Zero</span>
-        <span class="stat-label">Duplicate candidates</span>
       </div>
     </div>
   </div>
@@ -165,7 +148,7 @@
     <p class="section-label">Engineering Lessons</p>
     <h2>Reflections</h2>
     <ul class="bullet-list">
-      <li><strong>Designing for non-technical users is its own engineering problem.</strong> A command-line flag made sense to me, but the right interface for someone who'd never open a terminal turned out to be one simple question asked out loud when the program starts — this took more iteration than the search logic itself.</li>
+      <li><strong>Designing for non-technical users is its own engineering problem.</strong> A command-line flag made sense to me, but the right interface for someone who'd never open a terminal turned out to be one simple question asked out loud when the program starts; this took more iteration than the search logic itself.</li>
       <li><strong>A fit score is only useful if a recruiter can tell whether to trust it.</strong> Having the LLM write a short rationale alongside every score, the same way a person would jot down a first impression, mattered more for actual adoption than making the scoring itself more sophisticated.</li>
     </ul>
   </div>
@@ -180,7 +163,6 @@
       <span class="tech-tag">LLM APIs</span>
       <span class="tech-tag">Web Search Automation</span>
       <span class="tech-tag">openpyxl / Excel Automation</span>
-      <span class="tech-tag">Record Deduplication</span>
     </div>
   </div>
 </section>

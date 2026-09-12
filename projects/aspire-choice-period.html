@@ -1,28 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-SDHG8M1EKL"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'G-SDHG8M1EKL');
-  </script>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Aspire Choice Period Assignment System — Suryan Engineer</title>
+<title>Aspire Choice Period Assignment System | Suryan Engineer</title>
 <meta name="description" content="Project: leading a three-person team to build an automated, preference-driven class assignment system for Hathaway Brown School's Aspire Choice Period." />
 
 <link rel="canonical" href="https://suryanengineer.github.io/projects/aspire-choice-period.html" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://suryanengineer.github.io/projects/aspire-choice-period.html" />
-<meta property="og:title" content="Aspire Choice Period Assignment System — Suryan Engineer" />
+<meta property="og:title" content="Aspire Choice Period Assignment System | Suryan Engineer" />
 <meta property="og:description" content="Project: leading a three-person team to build an automated, preference-driven class assignment system for Hathaway Brown School&#39;s Aspire Choice Period." />
 <meta property="og:site_name" content="Suryan Engineer" />
 <meta name="twitter:card" content="summary" />
-<meta name="twitter:title" content="Aspire Choice Period Assignment System — Suryan Engineer" />
+<meta name="twitter:title" content="Aspire Choice Period Assignment System | Suryan Engineer" />
 <meta name="twitter:description" content="Project: leading a three-person team to build an automated, preference-driven class assignment system for Hathaway Brown School&#39;s Aspire Choice Period." />
 <link rel="icon" href="data:,">
 <link rel="stylesheet" href="../css/style.css" />
@@ -124,7 +115,7 @@
       preference, while each session has a fixed capacity. The objective is to maximize the
       quality of student assignments subject to those capacity constraints, making a
       <strong>maximum matching</strong> formulation more appropriate than a two-sided
-      stable-matching algorithm — sessions don't have preferences of their own, so the extra
+      stable-matching algorithm: sessions don't have preferences of their own, so the extra
       machinery a Gale-Shapley-style approach brings wasn't buying anything, and a matching
       algorithm was far simpler to implement correctly in Apps Script within Google's
       execution-time limits.
@@ -145,17 +136,16 @@
     <h2>Designing for adversarial and incomplete input</h2>
     <p class="lede">
       Once students began interacting with the system, the Form had to be treated as an
-      uncontrolled input source rather than a clean dataset. The system therefore had to account
-      for duplicate submissions, incomplete preferences, repeated rankings, late responses, and
-      attempts to manipulate outcomes through strategically limited preference lists — for
-      example, listing only one "safe" choice to guarantee a seat there rather than risking a
-      more competitive option elsewhere.
+      uncontrolled input source rather than a clean dataset. The system therefore had to
+      account for attempts to manipulate the results through strategically limited preference
+      lists, for example, listing only one "safe" choice to guarantee a seat there rather than
+      risking a more competitive option elsewhere.
     </p>
     <p class="lede">
       Before the system ever touched a real response, I wrote a battery of synthetic test cases
-      that mirrored this behavior — duplicate submissions, blank and repeated rankings, late
-      entries, capacity ties — and ran the matching engine against all of them until every case
-      resolved to one clean, valid assignment. That testing pass caught more real problems than
+      that mirrored this behavior: duplicate submissions, blank and repeated rankings, late
+      entries, and capacity ties, then ran the matching engine against all of them until every
+      case resolved to one clean, valid assignment. That testing pass caught more real problems than
       anything in the "happy path" version of the system would have.
     </p>
   </div>
@@ -170,8 +160,8 @@
       implementation while delegating Form and response-sheet setup and the validation-and-testing
       pass to the other two, with regular check-ins to track progress and unblock whichever piece
       was behind. I also served as the primary liaison with the school, translating informal or
-      non-technical requirements — a grade-level priority rule, a hard cap that changed midway
-      through the program — into concrete system specifications, and communicating implementation
+      non-technical requirements (a grade-level priority rule, a hard cap that changed midway
+      through the program) into concrete system specifications, and communicating implementation
       status and limitations back to a nontechnical stakeholder.
     </p>
   </div>

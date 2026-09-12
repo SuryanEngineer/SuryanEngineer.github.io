@@ -1,28 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-SDHG8M1EKL"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'G-SDHG8M1EKL');
-  </script>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Geographical Inspection Recruitment Analysis — Suryan Engineer</title>
+<title>Geographical Inspection Recruitment Analysis | Suryan Engineer</title>
 <meta name="description" content="Project: a geospatial clustering system that finds where hiring a local inspector would eliminate costly travel inspections, surfacing a $250K hiring decision in its first run." />
 
 <link rel="canonical" href="https://suryanengineer.github.io/projects/geographical-recruitment-analysis.html" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://suryanengineer.github.io/projects/geographical-recruitment-analysis.html" />
-<meta property="og:title" content="Geographical Inspection Recruitment Analysis — Suryan Engineer" />
+<meta property="og:title" content="Geographical Inspection Recruitment Analysis | Suryan Engineer" />
 <meta property="og:description" content="Project: a geospatial clustering system that finds where hiring a local inspector would eliminate costly travel inspections, surfacing a $250K hiring decision in its first run." />
 <meta property="og:site_name" content="Suryan Engineer" />
 <meta name="twitter:card" content="summary" />
-<meta name="twitter:title" content="Geographical Inspection Recruitment Analysis — Suryan Engineer" />
+<meta name="twitter:title" content="Geographical Inspection Recruitment Analysis | Suryan Engineer" />
 <meta name="twitter:description" content="Project: a geospatial clustering system that finds where hiring a local inspector would eliminate costly travel inspections, surfacing a $250K hiring decision in its first run." />
 <link rel="icon" href="data:,">
 <link rel="stylesheet" href="../css/style.css" />
@@ -132,7 +123,7 @@
     <div class="screenshot">
       <img src="../assets/images/inspector-ranges-map.webp" alt="Inspector Ranges map showing 116 inspectors, their inspection locations, and classifications by travel status and timing">
     </div>
-    <p class="screenshot-caption">Inspector Ranges — 116 inspectors mapped with their inspection locations and classifications</p>
+    <p class="screenshot-caption">Inspector Ranges: 116 inspectors mapped with their inspection locations and classifications</p>
 
     <h3 class="subhead">Analysis Clusters</h3>
     <ul class="bullet-list">
@@ -141,19 +132,19 @@
     <div class="screenshot">
       <img src="../assets/images/analysis-cluster-map.webp" alt="Analysis Cluster map showing 8 clusters covering 1,913 inefficient travel inspections, with adjustable clustering parameters">
     </div>
-    <p class="screenshot-caption">Analysis Clusters — 8 clusters covering 1,913 travel inspections identified as inefficient</p>
+    <p class="screenshot-caption">Analysis Clusters: 8 clusters covering 1,913 travel inspections identified as inefficient</p>
 
     <h3 class="subhead">Future Year Analysis</h3>
     <ul class="bullet-list">
-      <li>Takes a projected increase in next year's inspection volume, scales the workload accordingly, and subtracts what the current inspector network could still cover locally. The remaining workload — what current staff could not absorb — is clustered using the same method as the current-year analysis, converting a projected growth figure into a concrete recommendation: how many hires, and where.</li>
+      <li>Takes a projected increase in next year's inspection volume, scales the workload accordingly, and subtracts what the current inspector network could still cover locally. The remaining workload (what current staff could not absorb) is clustered using the same method as the current-year analysis, converting a projected growth figure into a concrete recommendation: how many hires, and where.</li>
     </ul>
     <div class="screenshot">
       <img src="../assets/images/future-year-workload-map.webp" alt="Future Year Workload Analysis map projecting a 2x increase in inspection volume and identifying 18 hire regions">
     </div>
-    <p class="screenshot-caption">Future Year Analysis — projecting 2× workload growth, 18 hire regions identified</p>
+    <p class="screenshot-caption">Future Year Analysis: projecting 2× workload growth, 18 hire regions identified</p>
 
     <p style="margin-top:6px;">
-      All three maps are interactive controls built directly into the dashboard's HTML —
+      All three maps are interactive controls built directly into the dashboard's HTML:
       cluster radius, minimum city population, and projected workload can all be adjusted and
       re-clustered live in the browser, with no need to rerun the underlying Python pipeline.
     </p>
@@ -200,7 +191,7 @@
     <ul class="bullet-list">
       <li><strong>Geocoding at scale is an engineering problem, not a data problem.</strong> A naive one-API-call-per-address approach hits rate limits within minutes on any real dataset. Batching, aggressive caching, and fallback logic for addresses that don't resolve cleanly turned a 17-minute-per-run geocoder into one that finishes in seconds on warm data.</li>
       <li><strong>Clustering algorithms need a clear contract for what the radius means, and what counts as a valid center.</strong> Early attempts produced clusters centered on empty points with no realistic hiring target nearby. Anchoring cluster centers to actual population centers made every result actionable.</li>
-      <li><strong>Frontend interactivity in generated HTML needs careful scoping.</strong> Functions defined inside an IIFE are invisible to <code class="mono">onclick=</code> attributes, which resolve in the global scope — understanding the distinction between module-based and single-file embedded JavaScript patterns resolved the bug.</li>
+      <li><strong>Frontend interactivity in generated HTML needs careful scoping.</strong> Functions defined inside an IIFE are invisible to <code class="mono">onclick=</code> attributes, which resolve in the global scope; understanding the distinction between module-based and single-file embedded JavaScript patterns resolved the bug.</li>
       <li><strong>A rerunnable tool is worth more than a one-time analysis.</strong> A script that analyzes a snapshot of data is useful once; a tool that can be re-run on fresh data, with persistent caching and structured outputs, is useful indefinitely.</li>
     </ul>
   </div>

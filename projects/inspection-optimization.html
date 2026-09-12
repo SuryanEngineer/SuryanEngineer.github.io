@@ -1,28 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-SDHG8M1EKL"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'G-SDHG8M1EKL');
-  </script>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Inspection Assignment &amp; Optimization — Suryan Engineer</title>
+<title>Inspection Assignment &amp; Optimization | Suryan Engineer</title>
 <meta name="description" content="Project: a Python optimization engine that assigns thousands of field inspections while balancing geography, workload, and operational constraints." />
 
 <link rel="canonical" href="https://suryanengineer.github.io/projects/inspection-optimization.html" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://suryanengineer.github.io/projects/inspection-optimization.html" />
-<meta property="og:title" content="Inspection Assignment &amp; Optimization — Suryan Engineer" />
+<meta property="og:title" content="Inspection Assignment &amp; Optimization | Suryan Engineer" />
 <meta property="og:description" content="Project: a Python optimization engine that assigns thousands of field inspections while balancing geography, workload, and operational constraints." />
 <meta property="og:site_name" content="Suryan Engineer" />
 <meta name="twitter:card" content="summary" />
-<meta name="twitter:title" content="Inspection Assignment &amp; Optimization — Suryan Engineer" />
+<meta name="twitter:title" content="Inspection Assignment &amp; Optimization | Suryan Engineer" />
 <meta name="twitter:description" content="Project: a Python optimization engine that assigns thousands of field inspections while balancing geography, workload, and operational constraints." />
 <link rel="icon" href="data:,">
 <link rel="stylesheet" href="../css/style.css" />
@@ -119,7 +110,7 @@
       <img src="../assets/images/inspection-assignment-map.webp" alt="Inspection Assignment Map dashboard showing inspectors, local vs. remaining inspections, range circles, and cluster markers across the US" loading="lazy" />
     </div>
     <p class="screenshot-caption">
-      Inspection Assignment Map — a live run: 2,550 inspections across 81 inspectors,
+      Inspection Assignment Map, a live run: 2,550 inspections across 81 inspectors,
       split into local coverage and remaining travel work, with adjustable per-inspector
       range and cluster markers grouping nearby travel inspections together.
     </p>
@@ -135,7 +126,7 @@
       <li><strong>Geocoding &amp; geographic processing:</strong> addresses resolved to coordinates with geopy, and distances between inspectors and inspection sites computed to drive the geography objective. Each inspector's home base, coverage range, and local-vs.-travel split are visible directly on the map.</li>
       <li><strong>Clustering &amp; grouped assignment:</strong> travel inspections outside every nearby inspector's range are grouped into clusters, so a whole cluster of nearby work can be assigned to one inspector in a single pass instead of one inspection at a time.</li>
       <li><strong>Workload balancing:</strong> each inspector's current load and preferences modeled as constraints so assignments don't overload any one person.</li>
-      <li><strong>LLM-assisted preference ranking:</strong> uses LLM APIs (Claude, Gemini) to read free-text notes the person running the assignment writes in for a given inspector — an inspector who doesn't want to work the south side of Chicago, or one who lives in an RV and travels a self-described route — and folds that directly into how candidates are ranked for a given cluster, alongside stated availability and other preferences.</li>
+      <li><strong>LLM-assisted preference ranking:</strong> uses LLM APIs (Claude, Gemini) to read free-text notes the person running the assignment writes in for a given inspector (an inspector who doesn't want to work the south side of Chicago, or one who lives in an RV and travels a self-described route) and folds that directly into how candidates are ranked for a given cluster, alongside stated availability and other preferences.</li>
       <li><strong>Assignment / optimization:</strong> the assignment problem is formulated as a variant of the <strong>Generalized Assignment Problem (GAP)</strong>, with each inspection assigned to exactly one inspector while maximizing an overall fit score subject to simultaneous capacity constraints on total workdays and inspection count. The production implementation uses a custom constructive and local-search heuristic rather than an off-the-shelf MILP solver. A fairness-aware extension adds dual-ordering bin-packing logic and a rescue pass to reduce uneven capacity fragmentation across inspectors.</li>
       <li><strong>Output:</strong> results written directly to formatted Excel schedules, so the operations team could act on them without manual re-entry.</li>
     </ul>

@@ -127,7 +127,7 @@
         'font-size:18px;font-weight:700;color:#0d7d72;'
       );
       console.log(
-        '%cLooking under the hood — nice. Here\'s my email if you want to talk: ' +
+        '%cLooking under the hood, nice. Here\'s my email if you want to talk: ' +
         'suryanengineer1@gmail.com',
         'font-size:13px;color:#666;line-height:1.5;'
       );
