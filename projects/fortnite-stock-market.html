@@ -4,17 +4,17 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Forecast: Fantasy Stock Market for Competitive Fortnite | Suryan Engineer</title>
-<meta name="description" content="Project: a trading market for competitive Fortnite esports, with order books, price-time priority, dividend apportionment, and market liquidity." />
+<meta name="description" content="Project: a live fantasy stock market for competitive Fortnite esports, with order books, price-time priority, dividend apportionment, and automated market liquidity, deployed with live users." />
 
 <link rel="canonical" href="https://suryanengineer.github.io/projects/fortnite-stock-market.html" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://suryanengineer.github.io/projects/fortnite-stock-market.html" />
 <meta property="og:title" content="Forecast: Fantasy Stock Market for Competitive Fortnite | Suryan Engineer" />
-<meta property="og:description" content="Project: a trading market for competitive Fortnite esports, with order books, price-time priority, dividend apportionment, and market liquidity." />
+<meta property="og:description" content="Project: a live fantasy stock market for competitive Fortnite esports, with order books, price-time priority, dividend apportionment, and automated market liquidity, deployed with live users." />
 <meta property="og:site_name" content="Suryan Engineer" />
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:title" content="Forecast: Fantasy Stock Market for Competitive Fortnite | Suryan Engineer" />
-<meta name="twitter:description" content="Project: a trading market for competitive Fortnite esports, with order books, price-time priority, dividend apportionment, and market liquidity." />
+<meta name="twitter:description" content="Project: a live fantasy stock market for competitive Fortnite esports, with order books, price-time priority, dividend apportionment, and automated market liquidity, deployed with live users." />
 <link rel="icon" href="data:,">
 <link rel="stylesheet" href="../css/style.css" />
 </head>
@@ -47,14 +47,14 @@
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
       All projects
     </a>
-    <p class="section-label">Personal Project · Active Development · 2026</p>
+    <p class="section-label">Personal Project · Live · 2026</p>
     <h1>Forecast: A Fantasy Stock Market for Competitive Fortnite</h1>
     <p class="one-liner">
-      Forecast is a fantasy stock market for competitive Fortnite. Professional players are
+      Forecast is a live fantasy stock market for competitive Fortnite. Professional players are
       represented as tradeable securities, with prices determined through a live order book and
-      dividends tied to tournament performance. The platform is designed to give users who
-      closely follow the competitive scene a market in which that knowledge can inform trading
-      decisions.
+      dividends tied to tournament performance. The platform is deployed with a production
+      database and live users, and is designed to give people who closely follow the competitive
+      scene a market in which that knowledge can inform trading decisions.
     </p>
     <div class="case-tags">
       <span class="tech-tag">Market Design</span>
@@ -62,11 +62,12 @@
       <span class="tech-tag">Financial Systems</span>
       <span class="tech-tag">Python</span>
       <span class="tech-tag">React</span>
+      <span class="tech-tag">Supabase</span>
     </div>
     <div class="btn-row">
-      <a class="btn btn-primary" href="../demos/forecast-demo.html" target="_blank" rel="noopener">
+      <a class="btn btn-primary" href="https://forecast-esports-stock-market.onrender.com" target="_blank" rel="noopener">
         <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-        Live Demo
+        Visit Live Site
       </a>
     </div>
   </div>
@@ -123,11 +124,11 @@
     <p class="section-label">Liquidity</p>
     <h2>Liquidity has to come from somewhere</h2>
     <p class="lede">
-      A market without resting orders cannot provide meaningful liquidity. Forecast uses a
-      population of automated participants with distinct trading strategies to maintain
-      order-book liquidity and provide counterparties for human traders. These participants
-      submit orders through the same execution path available to human users and do not receive
-      privileged access.
+      A market without resting orders cannot provide meaningful liquidity. Forecast runs a
+      population of automated participants (bots) with distinct trading strategies that keep
+      the live market active, maintain order-book depth, and provide counterparties for human
+      traders. These bots submit orders through the same execution path available to human
+      users and do not receive privileged access.
     </p>
   </div>
 </section>
@@ -140,8 +141,9 @@
       Before introducing the market to users, I simulated repeated trading cycles with
       populations of automated participants to identify failures in the economic and trading
       rules, including runaway inflation, poorly calibrated dividends, and fee structures that
-      reduced liquidity. The current fee structure, dividend parameters, and treasury rate were
-      selected based on those simulations rather than arbitrary assumptions.
+      reduced liquidity. The final market rules, including the fee structure, dividend
+      parameters, and treasury rate, were set based on those simulations rather than arbitrary
+      assumptions.
     </p>
   </div>
 </section>
@@ -149,11 +151,14 @@
 <section class="case-section">
   <div class="container">
     <p class="section-label">Where This Stands</p>
-    <h2>Active alpha: tested end-to-end against the live application stack</h2>
+    <h2>Deployed and in use, with ongoing development</h2>
     <p class="lede">
-      Forecast is under active development. The order book, auction and dividend settlement
-      systems, and trading interface have been implemented and tested end-to-end against the
-      live database and cache infrastructure. A live demonstration is available above.
+      Forecast is no longer a demo. It is deployed on Render with a Supabase-hosted database
+      and is in use by live users. The order book, auction and dividend settlement systems, and
+      trading interface run against the production database, with automated participants keeping
+      the market active. Development continues as the platform and its user base grow. The
+      live site is available at
+      <a href="https://forecast-esports-stock-market.onrender.com" target="_blank" rel="noopener">forecast-esports-stock-market.onrender.com</a>.
     </p>
     <div class="screenshot-pair">
       <div>
@@ -192,9 +197,11 @@
       <span class="tech-tag">Python</span>
       <span class="tech-tag">FastAPI</span>
       <span class="tech-tag">PostgreSQL</span>
+      <span class="tech-tag">Supabase</span>
       <span class="tech-tag">Redis</span>
       <span class="tech-tag">React</span>
       <span class="tech-tag">TypeScript</span>
+      <span class="tech-tag">Render</span>
     </div>
   </div>
 </section>
