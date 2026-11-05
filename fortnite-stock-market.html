@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Forecast: Fantasy Stock Market for Competitive Fortnite | Suryan Engineer</title>
+<meta name="description" content="Project: a live fantasy stock market for competitive Fortnite esports, with order books, price-time priority, dividend apportionment, and automated market liquidity, deployed with live users." />
+
+<link rel="canonical" href="https://suryanengineer.github.io/projects/fortnite-stock-market.html" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://suryanengineer.github.io/projects/fortnite-stock-market.html" />
+<meta property="og:title" content="Forecast: Fantasy Stock Market for Competitive Fortnite | Suryan Engineer" />
+<meta property="og:description" content="Project: a live fantasy stock market for competitive Fortnite esports, with order books, price-time priority, dividend apportionment, and automated market liquidity, deployed with live users." />
+<meta property="og:site_name" content="Suryan Engineer" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="Forecast: Fantasy Stock Market for Competitive Fortnite | Suryan Engineer" />
+<meta name="twitter:description" content="Project: a live fantasy stock market for competitive Fortnite esports, with order books, price-time priority, dividend apportionment, and automated market liquidity, deployed with live users." />
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="../css/style.css" />
+</head>
+<body>
+
+<nav class="site-nav">
+  <div class="container">
+    <a href="../index.html" class="brand"><span class="dot"></span> Suryan Engineer</a>
+    <ul class="nav-links">
+      <li><a href="../index.html#projects">Projects</a></li>
+      <li><a href="../index.html#experience">Experience</a></li>
+      <li><a href="../index.html#skills">Skills</a></li>
+      <li><a href="../index.html#contact">Contact</a></li>
+    </ul>
+    <div class="nav-actions">
+      <button class="theme-toggle" data-theme-toggle aria-label="Toggle dark mode">
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+      </button>
+      <button class="nav-toggle" data-nav-toggle aria-label="Toggle menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<header class="case-hero">
+  <div class="container">
+    <a class="back-link" href="../index.html#projects">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+      All projects
+    </a>
+    <p class="section-label">Personal Project · Live · 2026</p>
+    <h1>Forecast: A Fantasy Stock Market for Competitive Fortnite</h1>
+    <p class="one-liner">
+      Forecast is a live fantasy stock market for competitive Fortnite. Professional players are
+      represented as tradeable securities, with prices determined through a live order book and
+      dividends tied to tournament performance. The platform is deployed with a production
+      database and live users, and is designed to give people who closely follow the competitive
+      scene a market in which that knowledge can inform trading decisions.
+    </p>
+    <div class="case-tags">
+      <span class="tech-tag">Market Design</span>
+      <span class="tech-tag">Order Book Mechanics</span>
+      <span class="tech-tag">Financial Systems</span>
+      <span class="tech-tag">Python</span>
+      <span class="tech-tag">React</span>
+      <span class="tech-tag">Supabase</span>
+    </div>
+    <div class="btn-row">
+      <a class="btn btn-primary" href="https://forecast-esports-stock-market.onrender.com" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+        Visit Live Site
+      </a>
+    </div>
+  </div>
+</header>
+
+<section class="case-section">
+  <div class="container">
+    <p class="section-label">The Idea</p>
+    <h2>A market built around real trading mechanics</h2>
+    <p class="lede">
+      Professional Fortnite players are introduced to the market through an auction and
+      subsequently trade through a live order book. When a player performs well in a tournament,
+      a portion of the relevant prize pool is distributed to shareholders as a dividend.
+      Uninvested cash is held in a treasury instrument and earns yield.
+    </p>
+    <p class="lede">
+      The objective was to create a market in which competitive knowledge could provide a
+      meaningful trading advantage, which required the underlying mechanics to reflect real
+      market principles: prices determined by supply and demand, explicitly provided liquidity,
+      and exact settlement of all transactions and distributions.
+    </p>
+  </div>
+</section>
+
+<section class="case-section">
+  <div class="container">
+    <p class="section-label">How It Works</p>
+    <h2>Order types and how a trade clears</h2>
+    <p class="lede" style="margin-bottom:0;">
+      Trading runs on a real order book with two order types.
+    </p>
+    <ul class="bullet-list">
+      <li><strong>Limit orders</strong> rest in the order book at a specified price until matched. Matching follows <strong>price-time priority</strong>, with the best available price receiving priority and earlier orders taking precedence among orders at the same price.</li>
+      <li><strong>Quick orders</strong> execute immediately against available resting liquidity, sweeping through the book at the best available prices. As order size increases, execution may occur at progressively less favorable prices. When the order book cannot satisfy the full request, a liquidity-provider position supplies additional capacity, subject to its own holdings.</li>
+    </ul>
+  </div>
+</section>
+
+<section class="case-section">
+  <div class="container">
+    <p class="section-label">Settlement</p>
+    <h2>Exact settlement on every payout</h2>
+    <p class="lede">
+      Dividends and auction proceeds are distributed using an <strong>exact largest-remainder
+      (Hamilton) apportionment method</strong>. This ensures that the full distribution pool is
+      allocated across shareholders without introducing rounding discrepancies, while preserving
+      exact cash and share conservation.
+    </p>
+  </div>
+</section>
+
+<section class="case-section">
+  <div class="container">
+    <p class="section-label">Liquidity</p>
+    <h2>Liquidity has to come from somewhere</h2>
+    <p class="lede">
+      A market without resting orders cannot provide meaningful liquidity. Forecast runs a
+      population of automated participants (bots) with distinct trading strategies that keep
+      the live market active, maintain order-book depth, and provide counterparties for human
+      traders. These bots submit orders through the same execution path available to human
+      users and do not receive privileged access.
+    </p>
+  </div>
+</section>
+
+<section class="case-section">
+  <div class="container">
+    <p class="section-label">Testing the Rules</p>
+    <h2>Testing the market before launch</h2>
+    <p class="lede">
+      Before introducing the market to users, I simulated repeated trading cycles with
+      populations of automated participants to identify failures in the economic and trading
+      rules, including runaway inflation, poorly calibrated dividends, and fee structures that
+      reduced liquidity. The final market rules, including the fee structure, dividend
+      parameters, and treasury rate, were set based on those simulations rather than arbitrary
+      assumptions.
+    </p>
+  </div>
+</section>
+
+<section class="case-section">
+  <div class="container">
+    <p class="section-label">Where This Stands</p>
+    <h2>Deployed and in use, with ongoing development</h2>
+    <p class="lede">
+      Forecast is no longer a demo. It is deployed on Render with a Supabase-hosted database
+      and is in use by live users. The order book, auction and dividend settlement systems, and
+      trading interface run against the production database, with automated participants keeping
+      the market active. Development continues as the platform and its user base grow. The
+      live site is available at
+      <a href="https://forecast-esports-stock-market.onrender.com" target="_blank" rel="noopener">forecast-esports-stock-market.onrender.com</a>.
+    </p>
+    <div class="screenshot-pair">
+      <div>
+        <div class="screenshot">
+          <img src="../assets/images/forecast-limit-order.webp" alt="Forecast trading interface in Limit Order mode, showing a player's price chart, order book depth, and a buy order form with a limit price field" loading="lazy" />
+        </div>
+        <p class="screenshot-caption">Limit Order mode: specify a price and allow the order to remain in the book until matched.</p>
+      </div>
+      <div>
+        <div class="screenshot">
+          <img src="../assets/images/forecast-quick-trade.webp" alt="Forecast trading interface in Quick Trade mode, showing the same order book with instant buy/sell controls and an estimated cost breakdown" loading="lazy" />
+        </div>
+        <p class="screenshot-caption">Quick Trade mode: immediate execution against available liquidity, with the estimated execution premium shown before submission.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="case-section">
+  <div class="container">
+    <p class="section-label">Design Lessons</p>
+    <h2>Lessons from designing a market, not just an app</h2>
+    <ul class="bullet-list">
+      <li><strong>The rules only become meaningful at the edge cases.</strong> Designing behavior for situations where a quick order cannot find sufficient liquidity was more consequential than implementing the standard trading path. The liquidity-provider fallback therefore had to be explicitly constrained so the system could never create or sell shares beyond available holdings.</li>
+      <li><strong>Market parameters are interdependent.</strong> Fee rates affect liquidity, dividend sizing affects wealth distribution, and the treasury rate affects idle cash balances. These parameters had to be evaluated jointly through simulation rather than tuned independently.</li>
+      <li><strong>Economic rules must be established before implementation at scale.</strong> Defining settlement, dividend, fee, and treasury mechanics in simulation was substantially less costly than modifying those rules after real positions and balances had been established.</li>
+    </ul>
+  </div>
+</section>
+
+<section class="case-section">
+  <div class="container">
+    <p class="section-label">Technologies</p>
+    <h2>Stack</h2>
+    <div class="stack-row">
+      <span class="tech-tag">Python</span>
+      <span class="tech-tag">FastAPI</span>
+      <span class="tech-tag">PostgreSQL</span>
+      <span class="tech-tag">Supabase</span>
+      <span class="tech-tag">Redis</span>
+      <span class="tech-tag">React</span>
+      <span class="tech-tag">TypeScript</span>
+      <span class="tech-tag">Render</span>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container" style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;">
+    <p>&copy; <span data-year></span> Suryan Engineer. Built with plain HTML, CSS &amp; JS on GitHub Pages.</p>
+    <div class="footer-links">
+      <a href="https://linkedin.com/in/suryanengineer" target="_blank" rel="noopener">LinkedIn</a>
+      <button type="button" class="footer-contact-trigger" data-contact-trigger="email" data-contact-value="suryanengineer1@gmail.com">Email</button>
+    </div>
+  </div>
+</footer>
+
+<div class="contact-modal-overlay" data-contact-modal hidden>
+  <div class="contact-modal" role="dialog" aria-modal="true" aria-labelledby="contact-modal-label">
+    <button type="button" class="contact-modal-close" data-contact-modal-close aria-label="Close">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+    <p class="contact-modal-label" id="contact-modal-label" data-contact-modal-label>Email</p>
+    <p class="contact-modal-value" data-contact-modal-value>suryanengineer1@gmail.com</p>
+  </div>
+</div>
+
+<script src="../js/main.js"></script>
+</body>
+</html>
