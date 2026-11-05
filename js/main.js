@@ -108,6 +108,74 @@
     });
   }
 
+  /* ---------- Screenshot lightbox ----------
+     Clicking a screenshot (an image wrapped in a link inside .screenshot)
+     opens it enlarged over a darkened page instead of navigating away.
+     Clicking the dark area, the close button, or pressing Escape closes it.
+     Without JavaScript the link simply opens the image file. */
+  function initLightbox() {
+    var links = document.querySelectorAll('.screenshot a[href]');
+    if (!links.length) return;
+
+    var overlay = document.createElement('div');
+    overlay.className = 'lightbox-overlay';
+    overlay.hidden = true;
+    overlay.setAttribute('role', 'dialog');
+    overlay.setAttribute('aria-modal', 'true');
+    overlay.setAttribute('aria-label', 'Enlarged screenshot');
+    overlay.innerHTML =
+      '<button type="button" class="lightbox-close" aria-label="Close">' +
+        '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" ' +
+        'stroke-linecap="round" stroke-linejoin="round">' +
+        '<line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>' +
+      '</button>' +
+      '<figure class="lightbox-figure"><img alt="" />' +
+      '<figcaption class="lightbox-caption"></figcaption></figure>';
+    document.body.appendChild(overlay);
+
+    var imgEl = overlay.querySelector('img');
+    var capEl = overlay.querySelector('.lightbox-caption');
+    var closeBtn = overlay.querySelector('.lightbox-close');
+    var lastFocus = null;
+
+    function open(link) {
+      var thumb = link.querySelector('img');
+      var holder = link.closest('.screenshot');
+      var cap = holder && holder.nextElementSibling;
+      imgEl.src = link.getAttribute('href');
+      imgEl.alt = thumb ? thumb.alt : '';
+      capEl.textContent = cap && cap.classList.contains('screenshot-caption') ? cap.textContent : '';
+      capEl.hidden = !capEl.textContent;
+      lastFocus = document.activeElement;
+      overlay.hidden = false;
+      document.body.classList.add('modal-open');
+      closeBtn.focus();
+    }
+
+    function close() {
+      overlay.hidden = true;
+      imgEl.removeAttribute('src');
+      document.body.classList.remove('modal-open');
+      if (lastFocus && lastFocus.focus) lastFocus.focus();
+    }
+
+    links.forEach(function (link) {
+      link.addEventListener('click', function (e) {
+        e.preventDefault();
+        open(link);
+      });
+    });
+
+    // Clicking anywhere except the enlarged image itself closes it.
+    overlay.addEventListener('click', function (e) {
+      if (e.target !== imgEl) close();
+    });
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && !overlay.hidden) close();
+    });
+  }
+
   /* Load-in animation is handled entirely by CSS (see .reveal / .project-card
      in style.css) — no JS needed, so it can't fail silently. */
 
@@ -140,6 +208,7 @@
     initThemeToggle();
     initMobileNav();
     initContactModal();
+    initLightbox();
     initYear();
     logConsoleMessage();
   });
