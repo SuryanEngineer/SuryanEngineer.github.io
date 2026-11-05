@@ -666,6 +666,16 @@ body.modal-open { overflow: hidden; }
 .case-section .lede { font-size: 1.02rem; color: var(--text); max-width: 68ch; margin-bottom: 16px; }
 .case-section p { color: var(--text-muted); max-width: 68ch; margin-bottom: 14px; }
 .case-section p:last-child { margin-bottom: 0; }
+.case-section p a {
+  color: var(--accent);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+  font-weight: 500;
+  overflow-wrap: anywhere;
+  transition: color 0.15s ease;
+}
+.case-section p a:hover { color: var(--accent-strong); }
 
 .case-section ul.bullet-list { display: flex; flex-direction: column; gap: 11px; max-width: 68ch; }
 .case-section ul.bullet-list li {
