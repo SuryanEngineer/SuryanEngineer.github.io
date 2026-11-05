@@ -748,6 +748,7 @@ body.modal-open { overflow: hidden; }
   overflow: hidden;
 }
 .screenshot img { width: 100%; display: block; }
+.screenshot a { display: block; cursor: zoom-in; }
 .screenshot-caption {
   font-family: var(--font-mono);
   font-size: 0.8rem;

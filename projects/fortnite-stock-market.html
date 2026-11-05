@@ -153,25 +153,70 @@
     <p class="section-label">Where This Stands</p>
     <h2>Deployed and in use, with ongoing development</h2>
     <p class="lede">
-      Forecast is no longer a demo. It is deployed on Render with a Supabase-hosted database
-      and is in use by live users. The order book, auction and dividend settlement systems, and
-      trading interface run against the production database, with automated participants keeping
-      the market active. Development continues as the platform and its user base grow. The
-      live site is available at
-      <a href="https://forecast-esports-stock-market.onrender.com" target="_blank" rel="noopener">forecast-esports-stock-market.onrender.com</a>.
+      Forecast is deployed on Render with a Supabase-hosted database and is in use by live
+      users. The order book, auction and dividend settlement systems, and trading interface all
+      run against the production database, with automated participants keeping the market
+      active. Development is ongoing as the platform and its user base grow. The live site is
+      available at
+      <a href="https://forecast-esports-stock-market.onrender.com" target="_blank" rel="noopener">https://forecast-esports-stock-market.onrender.com</a>.
     </p>
     <div class="screenshot-pair">
       <div>
         <div class="screenshot">
-          <img src="../assets/images/forecast-limit-order.webp" alt="Forecast trading interface in Limit Order mode, showing a player's price chart, order book depth, and a buy order form with a limit price field" loading="lazy" />
+          <a href="../assets/images/forecast-market.webp" target="_blank" rel="noopener" aria-label="Open full-size screenshot">
+            <img src="../assets/images/forecast-market.webp" alt="Forecast Player Market page showing professional Fortnite players as tradeable stocks, each with a price, buy and sell quotes, 24-hour volume, shares outstanding, and a View and Trade button" loading="lazy" />
+          </a>
         </div>
-        <p class="screenshot-caption">Limit Order mode: specify a price and allow the order to remain in the book until matched.</p>
+        <p class="screenshot-caption">Player Market: every professional player is a tradeable stock with live buy and sell quotes, 24-hour volume, and shares outstanding.</p>
       </div>
       <div>
         <div class="screenshot">
-          <img src="../assets/images/forecast-quick-trade.webp" alt="Forecast trading interface in Quick Trade mode, showing the same order book with instant buy/sell controls and an estimated cost breakdown" loading="lazy" />
+          <a href="../assets/images/forecast-player-page.webp" target="_blank" rel="noopener" aria-label="Open full-size screenshot">
+            <img src="../assets/images/forecast-player-page.webp" alt="Forecast player page showing a price history chart, key stats including market cap and IPO price, a 2026 dividends summary, the order book with spread, and the buy and sell controls" loading="lazy" />
+          </a>
         </div>
-        <p class="screenshot-caption">Quick Trade mode: immediate execution against available liquidity, with the estimated execution premium shown before submission.</p>
+        <p class="screenshot-caption">Player page: price history, market statistics, dividends earned, and the live order book alongside the buy and sell controls.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="case-section">
+  <div class="container">
+    <p class="section-label">Tournament Leaderboard</p>
+    <h2>Tracking the tournaments that drive dividends</h2>
+    <p class="lede">
+      I designed a leaderboard for tracking tournaments, since dividends depend on how players
+      perform in them. It lists the upcoming schedule with each event's dividend pool and a live
+      countdown, and any completed tournament can be opened for a full breakdown.
+    </p>
+    <p class="lede">
+      Dividends are paid on the shares a user held when the tournament started. Shares bought
+      afterwards do not count toward that payout, and shares sold afterwards still do, so a
+      payout cannot be captured by trading after the results are known.
+    </p>
+    <div class="screenshot">
+      <a href="../assets/images/forecast-tournaments.webp" target="_blank" rel="noopener" aria-label="Open full-size screenshot">
+        <img src="../assets/images/forecast-tournaments.webp" alt="Forecast Tournaments page showing the next event with its total dividend pool and a countdown timer, followed by a list of upcoming tournaments" loading="lazy" />
+      </a>
+    </div>
+    <p class="screenshot-caption">Tournament schedule: upcoming events with the dividend pool for each and a countdown to the start.</p>
+    <div class="screenshot-pair">
+      <div>
+        <div class="screenshot">
+          <a href="../assets/images/forecast-tournament-standings.webp" target="_blank" rel="noopener" aria-label="Open full-size screenshot">
+            <img src="../assets/images/forecast-tournament-standings.webp" alt="Forecast tournament breakdown on the Standings and payouts tab, showing a player's placement, payout, per-share dividend, and game-by-game stats" loading="lazy" />
+          </a>
+        </div>
+        <p class="screenshot-caption">Standings and payouts: how an individual player performed, with their payout, dividend per share, and results in every game.</p>
+      </div>
+      <div>
+        <div class="screenshot">
+          <a href="../assets/images/forecast-tournament-games.webp" target="_blank" rel="noopener" aria-label="Open full-size screenshot">
+            <img src="../assets/images/forecast-tournament-games.webp" alt="Forecast tournament breakdown on the Game Results tab, showing the full placement table for a single game with eliminations, time alive, and damage dealt and taken" loading="lazy" />
+          </a>
+        </div>
+        <p class="screenshot-caption">Game results: the full placement table for any single game, with eliminations, time alive, and damage dealt and taken.</p>
       </div>
     </div>
   </div>
